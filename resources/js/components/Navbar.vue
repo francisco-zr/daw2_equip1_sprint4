@@ -1,12 +1,12 @@
 <template>
     <div class="min-h-full">
       <Disclosure as="nav" class="bg-orange-500 md:bg-orange-400" v-slot="{ open }">
-        <div class="mx-start max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-start max-w-7xl px-4 lg:px-8">
           <div class="flex items-center md:justify-between py-3 md:py-0">
             <div class="flex items-center">
               <div class="hidden md:block">
-                <div class="flex items-baseline space-x-2">
-                  <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-black hover:bg-gray-700 hover:text-white', 'px-3 py-2 text-sm font-medium']" :aria-current="item.current ? 'page' : undefined"><component :is="item.icon" class="inline-block mr-2 h-6 w-6" aria-hidden="true" />{{ item.name }}</a>
+                <div class="flex items-baseline">
+                  <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-black hover:bg-gray-700 hover:text-white', 'px-3 py-2 text-sm font-medium']" :aria-current="item.current ? 'page' : undefined"><component :is="item.icon" class="inline-block mr-1 h-5 w-5" aria-hidden="true" />{{ item.name }}</a>
                 </div>
               </div>
             </div>
@@ -42,7 +42,7 @@
                 <Bars3Icon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
                 <XMarkIcon v-else class="block h-6 w-6" aria-hidden="true" />
               </DisclosureButton>
-              <div class="font-semibold text-xl ml-2">pymeshield</div>
+              <div class="font-semibold text-xl ml-2"><a href="#">pymeshield</a></div>
             </div>
           </div>
         </div>
@@ -87,14 +87,15 @@
   const navigation = [
     { name: 'Inicio', href: '#', current: true, icon: HomeIcon },
     { name: 'Encuestas', href: '#', current: false, icon: QuestionMarkCircleIcon },
-    { name: 'Formación', href: '#', current: false, icon: AcademicCapIcon },
+    { name: 'EVA', href: '#', current: false, icon: AcademicCapIcon },
     { name: 'Presupuestos', href: '#', current: false, icon: CurrencyEuroIcon },
     { name: 'Calendario', href: '#', current: false, icon: CalendarDaysIcon },
-    { name: 'Inventario', href: '#', current: false, icon: QrCodeIcon },
+    { name: 'QR', href: '#', current: false, icon: QrCodeIcon },
   ]
   const userNavigation = [
     { name: 'Mi Perfil', href: '#' },
     { name: 'Ajustes', href: '#' },
+    { name: 'Admin', href: '#' },
     { name: 'Cerrar Sesión', href: '#' },
   ]
   </script>

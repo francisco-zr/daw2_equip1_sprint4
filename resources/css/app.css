@@ -9,10 +9,19 @@ body {
 header {
     @apply bg-orange-500;
 }
+
 footer {
     @apply text-white;
- 
 }
+
 footer a {
     @apply hover:text-orange-500;
+}
+
+footer h6 {
+    @apply font-bold;
+}
+
+footer svg {
+    @apply inline-block w-8 h-8;
 }
