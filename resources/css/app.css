@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    @apply font-montserrat;
+}
+
+header {
+    @apply bg-orange-500;
+}
+footer {
+    @apply text-white;
+ 
+}
+footer a {
+    @apply hover:text-orange-500;
+}
