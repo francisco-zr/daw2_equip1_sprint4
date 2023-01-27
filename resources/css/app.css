@@ -6,6 +6,12 @@ body {
     @apply font-montserrat;
 }
 
+.login-background {
+    background-image: url(/resources/img/fondo.svg);
+    background-repeat: no-repeat;
+    background-color: #dcdcdc;
+}
+
 header {
     @apply bg-orange-500;
 }
