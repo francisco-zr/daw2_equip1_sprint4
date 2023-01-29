@@ -14,17 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->integer('id_company')->autoIncrement();
-            $table->string('name_company', 255);
-            $table->string('email', 255);
-            $table->integer('phone_number');
-            $table->string('cif', 50);
-            $table->string('companie_logo', 255);
+            $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->integer('phone',);
+            $table->string('cif');
+            $table->string('logo');
             $table->date('hidden');
-            $table->string('removed_reason', 255);
-
-            // Indexes
-            $table->primary('id_company');
+            $table->string('removed_reason');
+            $table->timestamps();
         });
     }
 

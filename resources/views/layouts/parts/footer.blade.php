@@ -1,26 +1,25 @@
 <footer class="bg-black text-center lg:text-center mt-auto p-6">
-    <div class="flex flex-col sm:flex-row">
-        <div class="basis-1/2 md:basis-1/4 pb-3">
-            <a class="text-gray-100" href="#"><img src="../img/logo_pymeshield_black.png" alt="Logo" width="50px" class="inline-block mr-1">© pymeshield
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <div>
+            <a class="text-gray-100" href="#"><img src="../img/logo_pymeshield_black.png" alt="Logo" class="inline-block mr-1 w-12">© pymeshield
                 by Pymeralia</a>
         </div>
-        <div class="basis-1/2 md:basis-1/4 pb-3">
+        <div>
             <h6>Acerca de Pymeralia</h6>
             <ul>
                 <li><a href="#">Política de privacidad</a></li>
                 <li><a href="#">Política de cookies</a></li>
                 <li><a href="#">Aviso legal</a></li>
-                <li><a href="#">Ley de protección</a></li>
             </ul>
         </div>
-        <div class="basis-1/2 md:basis-1/4 pb-3">
+        <div>
             <h6>Contacto</h6>
             <ul>
                 <li><a href="tel:682849274">682849274</a></li>
                 <li><a href="mailto:support@pymeshield.com">info@pymeshield.com</a></li>
             </ul>
         </div>
-        <div class="basis-1/2 md:basis-1/4 pb-3">
+        <div>
             <h6>RRSS</h6>
             <ul>
                 <li>

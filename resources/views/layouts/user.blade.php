@@ -19,13 +19,7 @@
 
 <body class="flex flex-col min-h-screen">
     <div class="sticky top-0 left-0 right-0">
-        <header class="hidden md:block">
-                <div class="flex flex-row items-center p-3">
-                    <div><a href="#"><img src="{{ asset('img/logo_pymeshield.png') }}" alt="Logo" width="66" height="auto"></div>
-                    <div class="font-semibold text-xl ml-2">pymeshield</a></div>
-    </div>
-    </header>
-    <!-- Vue.js Navbar -->
+    <!-- Vue.js Header and Navbar -->
     <div id="navbar"></div>
     </div>
     <!-- Vue.js javascript -->
