@@ -19,13 +19,13 @@
 
 <body class="flex flex-col min-h-screen">
     <div class="sticky top-0 left-0 right-0">
-    <!-- Vue.js Header and Navbar -->
-    <div id="navbar"></div>
+        <!-- Vue.js Header and Navbar -->
+        <div id="navbar"></div>
     </div>
     <!-- Vue.js javascript -->
     @vite('resources/js/app.js')
     <main>
-
+        @yield('content')
     </main>
     <!-- Footer include -->
     @include('layouts.parts.footer')
