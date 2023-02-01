@@ -18,4 +18,9 @@ class Company extends Model
         'hidden',
         'removed_reason'
     ];
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }
