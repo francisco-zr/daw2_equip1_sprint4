@@ -12,7 +12,7 @@
         "lodash": "^4.17.19",
         "postcss": "^8.4.21",
         "tailwindcss": "^3.2.4",
-        "vite": "^4.0.0"
+        "vite": "^4.0.4"
     },
     "dependencies": {
         "@headlessui/vue": "^1.7.7",
@@ -20,6 +20,7 @@
         "@vitejs/plugin-vue": "^4.0.0",
         "@webzlodimir/vue-avatar": "^0.0.8",
         "vue": "^3.2.36",
+        "vue-icons": "^2.0.0",
         "vue-loader": "^17.0.1"
     }
 }
