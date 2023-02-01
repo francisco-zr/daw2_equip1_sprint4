@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+use App\Company;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,7 +21,7 @@ class CompanyFactory extends Factory
             'name' => fake()->company(),
             'email' => fake()->unique()->companyEmail(),
             'phone' => fake()->phoneNumber(),
-            'cif' => fake()->uuid(),
+            'cif' => fake()->name(),
         ];
     }
 }

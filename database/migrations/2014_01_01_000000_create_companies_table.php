@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->integer('phone',);
+            $table->string('phone',);
             $table->string('cif');
-            $table->string('logo');
-            $table->date('hidden');
-            $table->string('removed_reason');
+            $table->string('logo')->nullable();
+            $table->date('hidden')->nullable();
+            $table->string('removed_reason')->nullable();
             $table->timestamps();
         });
     }
