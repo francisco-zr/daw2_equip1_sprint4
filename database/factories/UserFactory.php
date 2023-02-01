@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -17,6 +18,9 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+
+        $company_id = Company::all()->pluck('id')->toArray();
+
         return [
             'name' => fake()->name(),
             'last_name' => fake()->lastName(),
@@ -27,6 +31,7 @@ class UserFactory extends Factory
             'phone' => fake()->phoneNumber(),
             'type' => fake()->randomElement(['admin','worker','client']),
             'remember_token' => Str::random(10),
+            'company_id' => $this->faker->randomElement($company_id),
         ];
     }
 
