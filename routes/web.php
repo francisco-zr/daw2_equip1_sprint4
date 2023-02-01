@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +25,4 @@ Route::get('/editar_perfil', function () {
     return view('editarperfil');
 });
 
-Route::get('/llistatEmpreses', function () {
-    return view('llistatEmpreses.show');
-});
-
+Route::get('/llistatEmpreses', [CompanyController::class, 'index']);
