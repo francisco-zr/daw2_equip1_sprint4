@@ -21,7 +21,7 @@ class CompanyFactory extends Factory
             'name' => fake()->company(),
             'email' => fake()->unique()->companyEmail(),
             'phone' => fake()->phoneNumber(),
-            'cif' => fake()->name(),
+            'cif' => $this->faker->vat(),
         ];
     }
 }
