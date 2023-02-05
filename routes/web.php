@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,12 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layouts/user');
 });
-Route::get('/login', function () {
-    return view('login');
-});
 
 Route::get('/editar_perfil', function () {
     return view('editarperfil');
 });
 
 Route::get('/llistatEmpreses', [CompanyController::class, 'index']);
+
+Route::get('/login', [AuthController::class, 'index'])->name('index');
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
