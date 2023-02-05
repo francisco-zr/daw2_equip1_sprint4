@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/editar_perfil', function () {
-    return view('editarperfil');
+    return view('perfilPersonal.editarperfil');
 });
 
 Route::get('/llistatEmpreses', [CompanyController::class, 'index']);
