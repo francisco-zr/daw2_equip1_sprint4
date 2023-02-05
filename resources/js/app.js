@@ -6,4 +6,4 @@ import App from "./components/Navbar.vue";
 import PerfilPersonal from "./components/PerfilPersonal.vue"
 
 createApp(App).mount("#navbar");
-create(PerfilPersonal).mount('#perfilPersonal');
+createApp(PerfilPersonal).mount('#perfilPersonal');
