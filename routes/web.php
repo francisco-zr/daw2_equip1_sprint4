@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
+use App\Models\Company;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,5 @@ Route::get('/llistatEmpreses', [CompanyController::class, 'index']);
 Route::get('/login', [AuthController::class, 'index'])->name('index');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login'); #test
+
+Route::get('llistatEmpreses/listCompanies', [CompanyController::class, 'listCompanies']);
