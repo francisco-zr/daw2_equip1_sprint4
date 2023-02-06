@@ -28,6 +28,10 @@ Route::get('/llistatEmpreses', [CompanyController::class, 'index']);
 
 Route::get('/login', [AuthController::class, 'index'])->name('index');
 
+Route::get('/lost-password', [AuthController::class, 'rememberPassword'])->name('rememberPassword');
+
+Route::get('/activate-user', [AuthController::class, 'activateUser'])->name('activateUser');
+
 Route::post('/login', [AuthController::class, 'login'])->name('login'); #test
 
 Route::get('llistatEmpreses/listCompanies', [CompanyController::class, 'listCompanies']);
