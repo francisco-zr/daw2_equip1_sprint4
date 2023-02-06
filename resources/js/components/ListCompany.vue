@@ -34,11 +34,6 @@ Vue.component('ListCompany,{
                 <td class="px-6 py-4">
                     {{ company.cif }}
                 </td>
-                <td>
-                    <button class="btn btn-blue">
-                        Button
-                    </button>
-                </td>
             </tr>
         </tbody>
         <tbody v-else>
@@ -61,7 +56,7 @@ export default {
     };
   },
   mounted() {
-    axios.get('/llistatEmpreses')
+    axios.get('/llistatEmpreses/listCompanies')
       .then(response => {
         this.companies = response.data;
       })

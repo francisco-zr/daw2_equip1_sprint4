@@ -2,6 +2,6 @@
 
 @section('content')
 
-@yield
+<div id="listCompany"></div>
 
 @stop

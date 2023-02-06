@@ -25,3 +25,4 @@ Route::get('/editar_perfil', function () {
 });
 
 Route::get('/llistatEmpreses', [CompanyController::class, 'index']);
+Route::get('llistatEmpreses/listCompanies', [CompanyController::class, 'listCompanies']);
