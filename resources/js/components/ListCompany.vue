@@ -2,7 +2,7 @@ Vue.component('ListCompany,{
     template:
 }')
 <template>
-    <div class="m-10 relative overflow-x-auto">
+    <div class="m-10">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-orange-400 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -36,12 +36,9 @@ Vue.component('ListCompany,{
                 </td>
             </tr>
         </tbody>
-        <tbody v-else>
-             <tr>
-                <td class="content-center">No s'han trobat empreses</td>
-             </tr>
-        </tbody>
+        <h1 class="text-lg content-center" v-else>No hay registros existentes.</h1>
     </table>
+    
 </div>
 </template>
 
