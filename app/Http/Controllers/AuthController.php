@@ -11,7 +11,15 @@ class AuthController extends Controller
     // retorna la vista
     public function index()
     {
-        return view('login');
+        return view('auth.login');
+    }
+    public function rememberPassword()
+    {
+        return view('auth.lost_password');
+    }
+    public function activateUser()
+    {
+        return view('auth.activate_user');
     }
     // hacer login
     public function login(Request $request)
