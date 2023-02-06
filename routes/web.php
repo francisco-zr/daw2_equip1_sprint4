@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\LogoutController;
 use App\Models\Company;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/pymeshield', function () {
     return view('layouts/user');
 });
 
@@ -26,12 +27,14 @@ Route::get('/editar_perfil', function () {
 
 Route::get('/llistatEmpreses', [CompanyController::class, 'index']);
 
-Route::get('/login', [AuthController::class, 'index'])->name('index');
+Route::get('/', [AuthController::class, 'index'])->name('index');
 
 Route::get('/lost-password', [AuthController::class, 'rememberPassword'])->name('rememberPassword');
 
 Route::get('/activate-user', [AuthController::class, 'activateUser'])->name('activateUser');
 
-Route::post('/login', [AuthController::class, 'login'])->name('login'); #test
+Route::post('/', [AuthController::class, 'login'])->name('login'); #test
+
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::get('llistatEmpreses/listCompanies', [CompanyController::class, 'listCompanies']);

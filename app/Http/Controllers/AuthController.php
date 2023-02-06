@@ -43,15 +43,4 @@ class AuthController extends Controller
             'email' => 'Email o contraseña incorrecta',
         ])->onlyInput('email');
     }
-    // cerrar sesión
-    public function logout(Request $request)
-    {
-        Auth::logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect('/');
-    }
 }

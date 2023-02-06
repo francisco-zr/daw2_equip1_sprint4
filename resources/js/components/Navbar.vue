@@ -123,6 +123,6 @@ const userNavigation = [
   { name: 'Mi Perfil', href: '#' },
   { name: 'Ajustes', href: '#' },
   { name: 'Admin', href: '#' },
-  { name: 'Cerrar Sesión', href: '#' },
+  { name: 'Cerrar Sesión', href: '/logout' },
 ]
 </script>

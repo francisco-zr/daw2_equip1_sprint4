@@ -26,7 +26,7 @@
                     </div>
                 </div>
             @endif
-            <form class="mt-8 space-y-6" action="/login" method="POST">
+            <form class="mt-8 space-y-6" action="/lost-password" method="POST">
                 @csrf
                 <input type="hidden" name="remember" value="true">
                 <div class="-space-y-px rounded-md shadow-sm">
