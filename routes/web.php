@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layouts/user');
 });
-    
+
 Route::get('/editar_perfil', function () {
     return view('perfilPersonal/editarperfil');
 });
@@ -27,4 +27,4 @@ Route::get('/llistatEmpreses', [CompanyController::class, 'index']);
 
 Route::get('/login', [AuthController::class, 'index'])->name('index');
 
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login'); #test
