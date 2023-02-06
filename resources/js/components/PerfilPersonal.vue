@@ -47,7 +47,7 @@
                         <tr>
                           <td></td>
                           <td>Teléfono</td>
-                          <td>6</td>
+                          <td>658429179</td>
                         </tr>
                         <tr>
                           <td></td>

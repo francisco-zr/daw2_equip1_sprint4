@@ -11,11 +11,11 @@
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('img/android-chrome-192x192.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/favicon-16x16.png') }}">
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <!-- Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+        @turnstileScripts()
     <!-- CSS include -->
     @vite('resources/css/app.css')
 </head>
@@ -77,7 +77,7 @@
                                 contraseña?</a>
                         </div>
                     </div>
-                    <div class="cf-turnstile flex items-center justify-center" data-sitekey="3x00000000000000000000FF"></div>
+                    <div class="flex items-center justify-center"><x-turnstile /></div>
 
                     <div>
                         <button type="submit"
