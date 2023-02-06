@@ -2,6 +2,10 @@
 
 @section('content')
 
-<div id="listCompany"></div>
+<div id="addCompany"></div>
+
+<div id="listCompany">
+
+</div>
 
 @stop
