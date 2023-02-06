@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('inventaries', function (Blueprint $table) {
+        Schema::create('resource_texts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('device_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->string('name', 255)->nullable(false);
+            $table->string('description', 255)->nullable(false);
+            $table->foreignId('category_id')->references('id')->on('categories');
+            $table->date('hidden')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inventaries');
+        Schema::dropIfExists('resource_texts');
     }
 };
