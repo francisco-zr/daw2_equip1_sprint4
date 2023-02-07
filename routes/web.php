@@ -21,9 +21,14 @@ Route::get('/pymeshield', function () {
     return view('layouts/user');
 })->middleware('auth');
 
-Route::get('/editar_perfil', function () {
-    return view('perfilPersonal/editarperfil');
+Route::get('/Perfil_Personal', function () {
+    return view('perfilPersonal/PerfilPersonal'); //perfilPersonal es una carpeta i PerfilPersonal es la pagina
 })->middleware('auth');
+
+Route::get('/Perfil_Personal/Editar_Perfil', function () {
+    return view('perfilPersonal/EditarPerfil');
+})->name('EditarPerfil');
+
 
 Route::get('/llistatEmpreses', [CompanyController::class, 'index'])->middleware('auth');
 
