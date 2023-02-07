@@ -36,6 +36,8 @@ Route::get('/', [AuthController::class, 'index'])->name('index')->middleware('gu
 
 Route::get('/lost-password', [AuthController::class, 'rememberPassword'])->name('rememberPassword');
 
+Route::post('/lost-password', [AuthController::class, 'rememberSend'])->name('rememberSend');
+
 Route::get('/activate-user', [AuthController::class, 'activateUser'])->name('activateUser');
 
 Route::post('/', [AuthController::class, 'login'])->name('login'); #test

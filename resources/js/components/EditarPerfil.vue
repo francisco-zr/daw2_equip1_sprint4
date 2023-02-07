@@ -9,7 +9,7 @@
                                 <img src="/img/imatgeTatiana.png" alt="imagen_del_usuario" class="mb-3 img-fluid">
                                 <h4>Tatiana Valentinyova</h4>
                                 <button class="fill">
-                                    Cambiar foto de perfil
+                                    Cambiar foto
                                 </button>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
 
 </template>
 
-<style>
+<style scoped>
 .left-table {
     float: left;
     margin-left: 100px;
@@ -173,9 +173,9 @@ button {
 }
 
 .boton1 {
-    background-color: blue;
-    color: white;
-    border: 2px solid blue;
+    background-color: rgb(247, 192, 115);
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
     border-radius: 5px;
     font-size: 16px;
     padding: 10px 20px;
@@ -186,7 +186,7 @@ button {
 
 .boton1:hover {
     background-color: white;
-    color: blue;
+    color: rgb(0, 0, 0);
     cursor: pointer;
     transform: scale(1.1);
 }
