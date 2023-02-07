@@ -1,75 +1,74 @@
-.left-table {
-  float: left;
-  margin-left: 100px;
-}
 
-.right-table {
-  float: right;
-  margin-right: 100px;
-}
+  .left-table {
+    float: left;
+    margin-left: 100px;
+  }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .right-table {
+    float: right;
+    margin-right: 100px;
+  }
 
-.main-body {
-  width: 80%;
-  height: 100%;
-  margin: 0 auto;
-}
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.gutters-sm {
-  padding: 20px;
-}
+  .main-body {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+  }
 
+  .gutters-sm {
+    padding: 20px;
+  }
 
-.slide {
-  background-color: #4aeebf;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-}
+  .slide {
+    background-color: #4aeebf;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+  }
 
-.slide:hover {
-  background-color: #c0f6ff;
-}
+  .slide:hover {
+    background-color: #c0f6ff;
+  }
 
-.img-fluid {
-  max-width: 200px;
-  height: auto;
-  border-radius: 50%;
-}
+  .img-fluid {
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
+  }
 
-td {
-  padding: 7px;
+  td {
+    padding: 7px;
+  }
+  table {
+    border: 1px solid black;
+  }
 
-}
-table {
-  border: 1px solid black;
-}
+  td:first-child {
+    padding-right: 20px;
+  }
 
+  td:last-child {
+    padding-left: 20px;
+  }
 
-td:first-child {
-  padding-right: 20px;
-}
+  tr:nth-child(odd) {
+    background-color: lightgray;
+  }
 
-td:last-child {
-  padding-left: 20px;
-}
+  tr:nth-child(even) {
+    background-color: white;
+  }
 
-tr:nth-child(odd) { /*Ficar color a les linies inpars*/
-  background-color: lightgray;
-}
+  button {
+    margin-top: 20px;
+  }
 
-tr:nth-child(even) { /*Ficar color a les linies pars*/
-  background-color: white;
-}
-
-button {  /*Ficar  una separacio entre la taula i el boto*/
-  margin-top: 20px;
-}

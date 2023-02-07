@@ -1,7 +1,10 @@
 <style>
 @import "../../css/perfil_Personal.css";
 </style>
+
+
 <template>
+ 
   <div class="container">
     <div class="main-body">
       <div class="row gutters-sm">
@@ -9,7 +12,7 @@
           <div class="card text-center">
             <img src="/img/imatgeTatiana.png" alt="imagen_del_usuario" class="mb-3 img-fluid">
             <div class="card-body">
-              <h4 class="mt-3">Tatiana Valentinyova</h4>
+              <h4 class="mt-3 text-xl font-bold">Tatiana Valentinyova</h4>
             </div>
           </div>
         </div>
@@ -57,5 +60,6 @@
       </div>
     </div>
   </div>
+ 
 </template>
 
