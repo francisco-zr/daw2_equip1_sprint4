@@ -36,7 +36,7 @@ class AuthController extends Controller
         if (Auth::attempt($validated)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
+            return redirect()->intended('/pymeshield');
         }
 
         return back()->withErrors([

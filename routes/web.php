@@ -19,13 +19,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/pymeshield', function () {
     return view('layouts/user');
-});
+})->middleware('auth');
 
 Route::get('/editar_perfil', function () {
     return view('perfilPersonal/editarperfil');
-});
+})->middleware('auth');
 
-Route::get('/llistatEmpreses', [CompanyController::class, 'index']);
+Route::get('/llistatEmpreses', [CompanyController::class, 'index'])->middleware('auth');
 
 Route::get('/', [AuthController::class, 'index'])->name('index');
 
@@ -37,4 +37,4 @@ Route::post('/', [AuthController::class, 'login'])->name('login'); #test
 
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
-Route::get('llistatEmpreses/listCompanies', [CompanyController::class, 'listCompanies']);
+Route::get('llistatEmpreses/listCompanies', [CompanyController::class, 'listCompanies'])->middleware('auth');
