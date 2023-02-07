@@ -86,7 +86,7 @@
 
 </template>
 
-<style>
+<style scoped>
 .left-table {
     float: left;
     margin-left: 100px;

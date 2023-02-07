@@ -1,4 +1,4 @@
-<style>
+<style scoped>
 @import "../../css/perfil_Personal.css";
 </style>
 
