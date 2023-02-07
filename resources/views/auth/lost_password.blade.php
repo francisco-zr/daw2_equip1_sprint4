@@ -41,7 +41,7 @@
 
                 <div class="flex items-center justify-between">
                     <div class="text-sm">
-                        <a href="/login" class="font-medium text-orange-600 hover:text-orange-500">Pulse aquí para volver al inicio de sesión</a>
+                        <a href="/" class="font-medium text-orange-600 hover:text-orange-500">Pulse aquí para volver al inicio de sesión</a>
                     </div>
                 </div>
                 <div class="flex items-center justify-center">
