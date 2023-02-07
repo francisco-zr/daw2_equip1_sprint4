@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/pymeshield', function () {
+Route::get('/home', function () {
     return view('layouts/user');
 })->middleware('auth');
 
@@ -32,7 +32,7 @@ Route::get('/Perfil_Personal/Editar_Perfil', function () {
 
 Route::get('/llistatEmpreses', [CompanyController::class, 'index'])->middleware('auth');
 
-Route::get('/', [AuthController::class, 'index'])->name('index');
+Route::get('/', [AuthController::class, 'index'])->name('index')->middleware('guest');
 
 Route::get('/lost-password', [AuthController::class, 'rememberPassword'])->name('rememberPassword');
 
