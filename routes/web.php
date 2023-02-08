@@ -34,13 +34,17 @@ Route::get('/llistatEmpreses', [CompanyController::class, 'index'])->middleware(
 
 Route::get('/', [AuthController::class, 'index'])->name('index')->middleware('guest');
 
-Route::get('/lost-password', [AuthController::class, 'rememberPassword'])->name('rememberPassword');
+Route::get('/lost-password', [AuthController::class, 'rememberPassword'])->middleware('guest')->name('rememberPassword');
 
 Route::post('/lost-password', [AuthController::class, 'rememberSend'])->name('rememberSend');
 
-Route::get('/activate-user', [AuthController::class, 'activateUser'])->name('activateUser');
+Route::get('/userList', [AuthController::class, 'userListing'])->name('userListing');
 
-Route::post('/', [AuthController::class, 'login'])->name('login'); #test
+Route::get('/reset-password/{token}', [AuthController::class, 'activateUser'])->middleware('guest')->name('password.reset');
+
+Route::post('reset-password', [AuthController::class, 'resetPassword'])->name('password.store');
+
+Route::post('/', [AuthController::class, 'login'])->middleware('guest')->name('login'); #test
 
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 

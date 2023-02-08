@@ -13,6 +13,17 @@
 
                 </p>
             </div>
+            @if (session('status'))
+                <div class="flex p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
+                    role="alert">
+                    <span class="sr-only">Danger</span>
+                    <div>
+                        <ul class="mt-1.5 ml-4 list-disc list-inside">
+                            <li>{{ session('status') ?? '' }}</li>
+                        </ul>
+                    </div>
+                </div>
+            @endif
             @if ($errors->any())
                 <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
                     role="alert">
@@ -26,7 +37,7 @@
                     </div>
                 </div>
             @endif
-            <form class="mt-8 space-y-6" action="/lost-password" method="POST">
+            <form class="mt-8 space-y-6" action="{{ route('rememberSend') }}" method="POST">
                 @csrf
                 <input type="hidden" name="remember" value="true">
                 <div class="-space-y-px rounded-md shadow-sm">
@@ -41,7 +52,9 @@
 
                 <div class="flex items-center justify-between">
                     <div class="text-sm">
-                        <a href="/" class="font-medium text-orange-600 hover:text-orange-500">Pulse aquí para volver al inicio de sesión</a>
+                        <a href="{{ route('index') }}" class="font-medium text-orange-600 hover:text-orange-500">Pulse aquí
+                            para volver
+                            al inicio de sesión</a>
                     </div>
                 </div>
                 <div class="flex items-center justify-center">
