@@ -59,18 +59,21 @@ export default {
         };
     },
     mounted() {
-        axios.get("/llistatEmpreses/listCompanies")
-            .then(response => {
-            this.companies = response.data;
-        })
-            .catch(error => {
-            console.log(error);
-        });
+        this.getCompanies()
     },
     methods:{
-    openModal(){ alert("hola")}
+        getCompanies(){
+            axios.get("/llistatEmpreses/listCompanies")
+            .then(response => {
+            this.companies = [];
+            this.companies = response.data;
+            })
+            .catch(error => {
+            console.log(error);
+            });
+        },
 
-
+        openModal(){ alert("hola")}
     },
 
     components: { AddCompany }
