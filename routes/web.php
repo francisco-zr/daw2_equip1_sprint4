@@ -42,7 +42,7 @@ Route::get('/userList', [AuthController::class, 'userListing'])->name('userListi
 
 Route::get('/reset-password/{token}', [AuthController::class, 'activateUser'])->middleware('guest')->name('password.reset');
 
-Route::post('reset-password', [NewPasswordController::class, 'store'])->name('password.store');
+Route::post('reset-password', [AuthController::class, 'resetPassword'])->name('password.store');
 
 Route::post('/', [AuthController::class, 'login'])->middleware('guest')->name('login'); #test
 
