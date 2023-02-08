@@ -1,6 +1,3 @@
-Vue.component('ListCompany,{
-    template:
-}')
 <template>
     <div class="m-10">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -38,7 +35,7 @@ Vue.component('ListCompany,{
         </tbody>
         <h1 class="text-lg content-center" v-else>No hay registros existentes.</h1>
     </table>
-    
+
 </div>
 </template>
 
