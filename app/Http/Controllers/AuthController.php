@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
@@ -18,7 +19,7 @@ class AuthController extends Controller
     {
         return view('auth.lost_password');
     }
-    public function rememberSend(Request $request)
+    public function rememberSend(Request $request): RedirectResponse
     {
         $request->validate(['email' => 'required|email']);
         $request->validate([
@@ -32,6 +33,7 @@ class AuthController extends Controller
         return $status === Password::RESET_LINK_SENT
             ? back()->with(['status' => __($status)])
             : back()->withErrors(['email' => __($status)]);
+            dd($status);
     }
     public function activateUser()
     {

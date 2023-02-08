@@ -8,8 +8,7 @@
                 <img class="mx-auto h-12 w-auto" src="{{ asset('img/logo_pymeshield.png') }}" alt="pymeshield">
                 <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Pymeshield</h2>
                 <p class="mt-6 text-center text-2xl font-bold tracking-tight text-gray-900">
-                    Para activar el usuario introduce una contraseña:
-
+                    Introduce una nueva contraseña:
                 </p>
             </div>
             @if ($errors->any())
@@ -47,7 +46,8 @@
 
                 <div class="flex items-center justify-between">
                     <div class="text-sm">
-                        <a href="/lost-password" class="font-medium text-orange-600 hover:text-orange-500">¿Código expirado? Haz click para reenviar uno nuevo</a>
+                        <a href="/lost-password" class="font-medium text-orange-600 hover:text-orange-500">¿Código expirado?
+                            Haz click para reenviar uno nuevo</a>
                     </div>
                 </div>
                 <div class="flex items-center justify-center">
