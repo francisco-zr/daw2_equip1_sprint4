@@ -36,7 +36,7 @@
                     </div>
                 </div>
             @endif
-            <form class="mt-8 space-y-6" action="/" method="POST">
+            <form class="mt-8 space-y-6" action="{{ route('login') }}" method="POST">
                 @csrf
                 <input type="hidden" name="remember" value="true">
                 <div class="-space-y-px rounded-md shadow-sm">
@@ -63,7 +63,8 @@
                     </div>
 
                     <div class="text-sm">
-                        <a href="/lost-password" class="font-medium text-orange-600 hover:text-orange-500">¿Has olvidado la
+                        <a href="{{ route('rememberPassword') }}"
+                            class="font-medium text-orange-600 hover:text-orange-500">¿Has olvidado la
                             contraseña?</a>
                     </div>
                 </div>

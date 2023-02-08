@@ -37,7 +37,7 @@
                     </div>
                 </div>
             @endif
-            <form class="mt-8 space-y-6" action="/lost-password" method="POST">
+            <form class="mt-8 space-y-6" action="{{ route('rememberSend') }}" method="POST">
                 @csrf
                 <input type="hidden" name="remember" value="true">
                 <div class="-space-y-px rounded-md shadow-sm">
@@ -52,7 +52,8 @@
 
                 <div class="flex items-center justify-between">
                     <div class="text-sm">
-                        <a href="/" class="font-medium text-orange-600 hover:text-orange-500">Pulse aquí para volver
+                        <a href="{{ route('index') }}" class="font-medium text-orange-600 hover:text-orange-500">Pulse aquí
+                            para volver
                             al inicio de sesión</a>
                     </div>
                 </div>

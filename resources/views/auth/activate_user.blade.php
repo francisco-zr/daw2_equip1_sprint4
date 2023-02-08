@@ -24,22 +24,22 @@
                     </div>
                 </div>
             @endif
-            <form class="mt-8 space-y-6" action="/reset-password" method="POST">
+            <form class="mt-8 space-y-6" action="{{ route('rememberSend') }}" method="POST">
                 @csrf
                 <input type="hidden" name="token" value="{{ $request->route('token') }}">
-                <input type="hidden" name="email" value="{{old('email', $request->email)}}">
+                <input type="hidden" name="email" value="{{ old('email', $request->email) }}">
                 <div class="-space-y-px rounded-md shadow-sm">
                     <div>
                         <label for="password" class="sr-only">Contraseña</label>
-                        <input id="password" name="password" type="password" value=""
-                            autocomplete="current-password" required
+                        <input id="password" name="password" type="password" value="" autocomplete="current-password"
+                            required
                             class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm"
                             placeholder="Contraseña">
                     </div>
                     <div>
                         <label for="repeat-password" class="sr-only">Repetir Contraseña</label>
-                        <input id="repeat-password" name="password_confirmation" type="password" autocomplete="current-password"
-                            required
+                        <input id="repeat-password" name="password_confirmation" type="password"
+                            autocomplete="current-password" required
                             class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm"
                             placeholder="Repetir Contraseña">
                     </div>
@@ -47,7 +47,8 @@
 
                 <div class="flex items-center justify-between">
                     <div class="text-sm">
-                        <a href="/lost-password" class="font-medium text-orange-600 hover:text-orange-500">¿Código expirado?
+                        <a href="{{ route('rememberPassword') }}"
+                            class="font-medium text-orange-600 hover:text-orange-500">¿Código expirado?
                             Haz click para reenviar uno nuevo</a>
                     </div>
                 </div>
@@ -68,7 +69,7 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </span>
-                        Activar
+                        Actualizar usuario
                     </button>
                 </div>
             </form>
