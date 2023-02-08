@@ -10,15 +10,17 @@ use Illuminate\Validation\Rule;
 
 class AuthController extends Controller
 {
-    // retorna la vista
+    // retorna la vista login
     public function index()
     {
         return view('auth.login');
     }
+    // retorna la vista recordar password
     public function rememberPassword()
     {
         return view('auth.lost_password');
     }
+    // envía un link para recuperar password
     public function userListing()
     {
         return view('auth.list_of_users');
@@ -39,6 +41,7 @@ class AuthController extends Controller
             : back()->withErrors(['email' => __($status)]);
             dd($status);
     }
+    // retornar la vista actualizar contraseña
     public function activateUser()
     {
         return view('auth.activate_user');
