@@ -1,19 +1,23 @@
 <template>
+    <AddCompany></AddCompany>
     <div class="m-10">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-orange-400 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Product name
+                    Nombre empresa
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Color
+                    Correo electrónico
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Category
+                    Nº de teléfono
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Price
+                    CIF
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Funciones
                 </th>
             </tr>
         </thead>
@@ -31,6 +35,10 @@
                 <td class="px-6 py-4">
                     {{ company.cif }}
                 </td>
+                <td class="px-6 py-4" >
+                    <button>Eliminar</button>
+                    <button @click="this.openModal()">Editar</button>
+                </td>
             </tr>
         </tbody>
         <h1 class="text-lg content-center" v-else>No hay registros existentes.</h1>
@@ -42,22 +50,30 @@
 <script>
 
 import axios from 'axios';
+import AddCompany from './AddCompany.vue';
 
 export default {
-  data() {
-    return {
-      companies: []
-    };
-  },
-  mounted() {
-    axios.get('/llistatEmpreses/listCompanies')
-      .then(response => {
-        this.companies = response.data;
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
+    data() {
+        return {
+            companies: []
+        };
+    },
+    mounted() {
+        axios.get("/llistatEmpreses/listCompanies")
+            .then(response => {
+            this.companies = response.data;
+        })
+            .catch(error => {
+            console.log(error);
+        });
+    },
+    methods:{
+    openModal(){ alert("hola")}
+
+
+    },
+
+    components: { AddCompany }
 };
 </script>
 
