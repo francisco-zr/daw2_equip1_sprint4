@@ -44,7 +44,6 @@ class AuthController extends Controller
         return $status === Password::RESET_LINK_SENT
             ? back()->with(['status' => __($status)])
             : back()->withErrors(['email' => __($status)]);
-        dd($status);
     }
     // retornar la vista actualizar contraseña
     public function activateUser(Request $request): View
@@ -80,6 +79,7 @@ class AuthController extends Controller
             'token' => ['required'],
             'email' => ['required', 'email'],
             'password' => 'required|min:8|confirmed',
+            'cf-turnstile-response' => ['required', Rule::turnstile()],
         ]);
 
         $status = Password::reset(
