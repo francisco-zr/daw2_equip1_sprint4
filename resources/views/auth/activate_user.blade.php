@@ -24,7 +24,7 @@
                     </div>
                 </div>
             @endif
-            <form class="mt-8 space-y-6" action="{{ route('rememberSend') }}" method="POST">
+            <form class="mt-8 space-y-6" action="{{ route('password.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name="token" value="{{ $request->route('token') }}">
                 <input type="hidden" name="email" value="{{ old('email', $request->email) }}">
