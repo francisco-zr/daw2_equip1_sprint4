@@ -28,7 +28,9 @@
     <!-- Vue.js javascript -->
     @vite('resources/js/app.js')
     <main>
-        @yield('content')
+        <div id="app">
+            @yield('content')
+        </div>
     </main>
     <!-- Footer include -->
     @include('layouts.parts.footer')
