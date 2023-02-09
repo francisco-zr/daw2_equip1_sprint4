@@ -2,9 +2,7 @@
 @import "../../css/perfil_Personal.css";
 </style>
 
-
 <template>
- 
   <div class="container">
     <div class="main-body">
       <div class="row gutters-sm">
@@ -12,7 +10,7 @@
           <div class="card text-center">
             <img src="/img/imatgeTatiana.png" alt="imagen_del_usuario" class="mb-3 img-fluid">
             <div class="card-body">
-              <h4 class="mt-3 text-xl font-bold">Tatiana Valentinyova</h4>
+              <h4 class="mt-3 text-xl font-bold">Tatiana</h4>
             </div>
           </div>
         </div>
@@ -33,7 +31,7 @@
                       </tr>
                       <tr>
                         <td>Nombre de usuario: </td>
-                        <td>Tatiana17</td>
+                        <td>tatian17</td>
                       </tr>
                       <tr>
                         <td>Email: </td>
@@ -41,11 +39,11 @@
                       </tr>
                       <tr>
                         <td>Teléfono</td>
-                        <td>658429179</td>
+                        <td>1241324</td>
                       </tr>
                       <tr>
                         <td>Empresa: </td>
-                        <td>Pymeralia</td>
+                        <td>dhsbnasd</td>
                       </tr>
                     </tbody>
                   </table>
@@ -60,6 +58,9 @@
       </div>
     </div>
   </div>
- 
 </template>
-
+<script>
+export default {
+  props: ['user'],
+};
+</script>

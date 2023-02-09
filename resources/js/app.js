@@ -16,7 +16,7 @@ app.use(RouterWeb)
 app.mount('#app')
 
 createApp(navbar).mount("#navbar");
-// createApp(PerfilPersonal).mount('#perfilPersonal');
+createApp(PerfilPersonal).mount('#perfilPersonal');
 // createApp(ListCompany).mount('#listCompany');
 // createApp(AddCompany).mount('#addCompany');
 // createApp(EditarPerfil).mount('#editarPerfil');

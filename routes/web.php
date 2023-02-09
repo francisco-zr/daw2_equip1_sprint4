@@ -5,6 +5,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\LogoutController;
 use App\Models\Company;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,7 @@ Route::get('/home', function () {
     return view('layouts/user');
 })->middleware('auth');
 
-Route::get('/Perfil_Personal', function () {
-    return view('perfilPersonal/PerfilPersonal'); //perfilPersonal es una carpeta i PerfilPersonal es la pagina
-})->middleware('auth')->middleware('auth');
+
 
 Route::get('/Perfil_Personal/Editar_Perfil', function () {
     return view('perfilPersonal/EditarPerfil');
@@ -49,3 +48,6 @@ Route::post('/', [AuthController::class, 'login'])->middleware('guest')->name('l
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::get('llistatEmpreses/listCompanies', [CompanyController::class, 'listCompanies'])->middleware('auth');
+
+Route::get('/Perfil_Personal', [UserController::class, 'users'])->name('Perfil-Personal');
+

@@ -2,5 +2,6 @@
 
 @section('content')
 
-<div id="perfilPersonal"></div>
+<div id="perfilPersonal" :user="{{json_encode($authenticatedUser)}}"></div>
+
 @endsection

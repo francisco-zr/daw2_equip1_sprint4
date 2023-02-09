@@ -25,19 +25,24 @@
     padding: 20px;
   }
 
-  .slide {
-    background-color: #4aeebf;
-    color: #000;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: none;
+ 
+.slide {
+  background-color: rgb(247, 192, 115);
+  color: rgb(0, 0, 0);
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px 20px;
+  transition: all 0.2s ease-in-out;
+  margin-left: 10px;
   }
-
-  .slide:hover {
-    background-color: #c0f6ff;
-  }
+  
+.slide:hover {
+  background-color: white;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  transform: scale(1.1);
+}
 
   .img-fluid {
     max-width: 200px;
