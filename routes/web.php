@@ -24,11 +24,6 @@ Route::get('/home', function () {
 
 
 
-Route::get('/Perfil_Personal/Editar_Perfil', function () {
-    return view('perfilPersonal/EditarPerfil');
-})->name('EditarPerfil')->middleware('auth');
-
-
 Route::get('/llistatEmpreses', [CompanyController::class, 'index'])->middleware('auth');
 
 Route::get('/', [AuthController::class, 'index'])->name('index')->middleware('guest');
@@ -50,4 +45,6 @@ Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('llistatEmpreses/listCompanies', [CompanyController::class, 'listCompanies'])->middleware('auth');
 
 Route::get('/Perfil_Personal', [UserController::class, 'users'])->name('Perfil-Personal');
+
+Route::get('/Perfil_Personal/Editar_Perfil', [UserController::class, 'editarUsuario'])->name('Editar-Perfil');
 

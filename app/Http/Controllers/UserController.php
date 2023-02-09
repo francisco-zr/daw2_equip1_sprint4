@@ -13,10 +13,12 @@ class UserController extends Controller
     public function users()
     {
         $authenticatedUser = Auth::user();
-        $user = DB::table('users')
-            ->join('companies', 'users.company_id', '=', 'companies.id')
-            ->select('users.*', 'companies.name')
-            ->get();
-        return view('perfilPersonal.PerfilPersonal', compact('user', 'authenticatedUser'));
+        return view('perfilPersonal.PerfilPersonal', compact('authenticatedUser'));
+    }
+
+    public function editarUsuario()
+    {
+        $authenticatedUser = Auth::user();
+        return view('perfilPersonal.EditarPerfil', compact('authenticatedUser'));
     }
 }
