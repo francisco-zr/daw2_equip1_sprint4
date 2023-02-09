@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 
 const ListCompany = () => import ('../components/ListCompany.vue')
-const PerfilPersonal = () => import ('../components/PerfilPersonal.vue')
+
 
 
 
@@ -12,11 +12,6 @@ const routes=[
         name:'llistatEmpreses',
         component:ListCompany
     },
-    {
-        path:'/Perfil_Personal',
-        name:'Perfil-Personal',
-        component:PerfilPersonal
-    }
 
     // {
     //     path:'/acceptacio-tasques',
