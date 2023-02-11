@@ -12,12 +12,23 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/favicon-16x16.png') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
-    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <!-- CSS include -->
     @vite('resources/css/app.css')
+    @if (Auth::check())
+        <script>
+            window.authUser = {!! json_encode(Auth::user()) !!};
+        </script>
+    @else
+        <script>
+            window.authUser = null;
+        </script>
+    @endif
 </head>
 
 <body class="flex flex-col min-h-screen">
