@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
+
 return [
 
     /*
@@ -32,8 +34,9 @@ return [
     ],
 
     'turnstile' => [
-        'key' => env('TURNSTILE_SITE_KEY'),
-        'secret' => env('TURNSTILE_SECRET_KEY'),
+        // hay que poner los valores buenos en el archivo .env
+        'key' => env('TURNSTILE_SITE_KEY', '1x00000000000000000000AA'),
+        'secret' => env('TURNSTILE_SECRET_KEY', '1x0000000000000000000000000000000AA'),
     ],
 
 ];

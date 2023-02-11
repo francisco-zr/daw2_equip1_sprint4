@@ -6,14 +6,14 @@
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.3",
+        "@vue/compiler-sfc": "^3.2.47",
         "autoprefixer": "^10.4.13",
         "axios": "^1.1.2",
         "laravel-vite-plugin": "^0.7.2",
         "lodash": "^4.17.19",
         "postcss": "^8.4.21",
         "tailwindcss": "^3.2.4",
-        "vite": "^4.0.4",
-        "@vue/compiler-sfc": "^3.2.47"
+        "vite": "^4.0.4"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^6.2.1",
@@ -22,6 +22,7 @@
         "@vitejs/plugin-vue": "^4.0.0",
         "@webzlodimir/vue-avatar": "^0.0.8",
         "jquery": "^3.6.3",
+        "quill": "^1.3.7",
         "vue": "^3.2.36",
         "vue-icons": "^2.0.0",
         "vue-loader": "^17.0.1",
