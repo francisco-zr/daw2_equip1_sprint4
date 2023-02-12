@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="h-full bg-gray-100" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
@@ -31,20 +31,22 @@
     @endif
 </head>
 
-<body class="flex flex-col min-h-screen">
-    <div id="app">
-        <div class="sticky top-0 left-0 right-0">
-            <!-- Vue.js Header and Navbar -->
-            <navbar />
-        </div>
-        <main>
-            @yield('content')
-        </main>
-    </div>
+<body class="h-full">
+        <!-- Vue.js Header and Navbar -->
+        <main class="flex-1 pb-8">
     <!-- Vue.js javascript -->
     @vite('resources/js/app.js')
-    <!-- Footer include -->
-    @include('layouts.parts.footer')
+        <div id="app">
+            <admin-layout />
+            @yield('content')
+            <div class="mt-8">
+                <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                    test
+                </div>
+
+              </div>
+            </main>
+        </div>
 </body>
 
 </html>

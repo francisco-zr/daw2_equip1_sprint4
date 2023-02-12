@@ -1,21 +1,19 @@
 import 'jquery/dist/jquery.min.js'
-import '../css/app.css' //importacion de tailwind
-import { create } from "lodash";
-import { createApp } from "vue/dist/vue.esm-bundler";
-import RouterWeb from "./router/index"
-import navbar from "./components/Navbar.vue";
-import ListCompany from "./components/ListCompany.vue";
-import AddCompany from "./components/AddCompany.vue";
+//defineAsync para cargar los componentes de forma asíncrona
+import { createApp, defineAsyncComponent } from "vue/dist/vue.esm-bundler";
 
 
 const app = createApp({})
-app.use(RouterWeb)
 
-app.mount('#app')
+//registramos los componentes
+const navbar = defineAsyncComponent(() => import('./components/Navbar.vue'));
+app.component('navbar', navbar);
+const admin = defineAsyncComponent(() => import('./components/AdminPanel.vue'));
+app.component('admin-layout', admin);
+const listcompany = defineAsyncComponent(() => import('./components/ListCompany.vue'));
+app.component('list-company', listcompany);
+const addcompany = defineAsyncComponent(() => import('./components/AddCompany.vue'));
+app.component('add-company', addcompany);
 
-createApp(navbar).mount("#navbar");
-// createApp(ListCompany).mount('#listCompany');
-// createApp(AddCompany).mount('#addCompany');
-
-
-
+// se monta la app
+app.mount("#app");

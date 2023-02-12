@@ -53,3 +53,6 @@ Route::get('/privacy_policy', [RulesController::class, 'indexPrivacy'])->name('i
 Route::get('/cookies_policy', [RulesController::class, 'indexCookies'])->name('index.cookies')->middleware('auth');
 Route::get('/terms', [RulesController::class, 'indexTerms'])->name('index.terms')->middleware('auth');
 
+Route::get('/admin', function () {
+    return view('layouts/admin');
+})->middleware('auth');

@@ -40,7 +40,7 @@
             </div>
         </div>
     </header>
-    <div class="min-h-full">
+    <div>
         <Disclosure as="nav" class="bg-orange-500 md:bg-orange-400" v-slot="{ open }">
             <div class="mx-start px-4 lg:px-8">
                 <div class="flex items-center md:justify-between py-3 md:py-0">
@@ -132,14 +132,6 @@ export default {
                 { name: 'Admin', href: '#' },
                 { name: 'Cerrar Sesión', href: '/logout' },
             ],
-            created() {
-            console.log(this.authUser);
-        },
-
-        methods: {
-            yourMethodName() {
-                console.log(this.authUser);
-            }}
         };
     }
 }
