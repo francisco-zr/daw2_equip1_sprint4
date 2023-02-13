@@ -48,7 +48,6 @@ Route::get('llistatEmpreses/listCompanies', [CompanyController::class, 'listComp
 Route::get('/Perfil_Personal', [UserController::class, 'users'])->name('Perfil-Personal')->middleware('auth');
 
 Route::get('/Perfil_Personal/Editar_Perfil', [UserController::class, 'editarUsuario'])->name('Editar-Perfil')->middleware('auth');
-Route::get('/Perfil_Personal/Editar_Perfil', [UserController::class, 'editarUsuario'])->name('Editar-Perfil');
 Route::patch('/Perfil_Personal/Editar_Perfil', [UserController::class, 'updateProfile'])->name('profile.update');
 
 
