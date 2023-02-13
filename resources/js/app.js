@@ -17,6 +17,8 @@ app.component('list-company', listcompany);
 
 const addcompany = defineAsyncComponent(() => import('./components/AddCompany.vue'));
 app.component('add-company', addcompany);
+const quillEditor = defineAsyncComponent(() => import('./components/Editor.vue'));
+app.component('editor', quillEditor);
 
 const listusers = defineAsyncComponent(() => import('./components/ListUsers.vue'));
 app.component('list-users', listusers);
