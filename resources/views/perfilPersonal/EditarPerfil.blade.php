@@ -8,6 +8,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
+
                                 <img src="/img/imatgeTatiana.png" alt="imagen_del_usuario" class="mb-3 img-fluid">
                                 <h4>{{ $authenticatedUser->name }} {{ $authenticatedUser->last_name }}</h4>
                                 <button class="boton1">
@@ -22,60 +23,62 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <h3 style="text-align: center;">Información personal</h3>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Nombre</td>
-                                                <td>
-                                                    <input type="text" value="{{ $authenticatedUser->name }}" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Apellidos</td>
-                                                <td>
-                                                    <input type="text" value="{{ $authenticatedUser->last_name }}" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Nombre de usuario</td>
-                                                <td>
-                                                    <input type="text" value="{{ $authenticatedUser->nick_name }}" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Email</td>
-                                                <td>
-                                                    <input type="text" value="{{ $authenticatedUser->email }}" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Teléfono</td>
-                                                <td>
-                                                    <input type="text" value="{{ $authenticatedUser->phone }}" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Empresa</td>
-                                                <td>Pymeralia</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <form action="{{ route('profile.update') }}" method="POST">
+                                        @csrf
+                                        @method('PATCH')
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <h3 style="text-align: center;">Información personal</h3>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Nombre</td>
+                                                    <td>
+                                                        <input name="name" type="text"
+                                                            value="{{ $authenticatedUser->name }}" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Apellidos</td>
+                                                    <td>
+                                                        <input name="last_name" type="text"
+                                                            value="{{ $authenticatedUser->last_name }}" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Nombre de usuario</td>
+                                                    <td>
+                                                        <input name="nick_name" type="text"
+                                                            value="{{ $authenticatedUser->nick_name }}" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Email</td>
+                                                    <td>
+                                                        <input name="email" type="text"
+                                                            value="{{ $authenticatedUser->email }}" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Teléfono</td>
+                                                    <td>
+                                                        <input name="phone" type="text"
+                                                            value="{{ $authenticatedUser->phone }}" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Empresa</td>
+                                                    <td>Pymeralia</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <button type="submit" class="boton1">Guardar cambios</button>
+                                        <button class="boton1">Cambiar contraseña</button>
+                                        <a class="boton1" href="/Perfil_Personal">Cancelar</a>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <button class="boton1">Guardar cambios</button>
-                                    <button class="boton1">Cambiar contraseña</button>
-                                    <a href="/Perfil_Personal">
-                                        <button class="boton1">Cancelar</button>
-                                    </a>
-                                </div>
-
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -85,7 +88,6 @@
 
         <!-- Change Image Modal -->
     </div>
-
 @endsection
 
 <style>
@@ -136,6 +138,14 @@
         width: 100%;
         height: 70%;
     }
+
+    h4 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 100px;
+    }
+
 
     td:first-child {
         padding-right: 20px;
