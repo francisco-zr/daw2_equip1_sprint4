@@ -33,7 +33,9 @@ Route::get('/lost-password', [AuthController::class, 'rememberPassword'])->middl
 
 Route::post('/lost-password', [AuthController::class, 'rememberSend'])->name('rememberSend');
 
-Route::get('/userList', [AuthController::class, 'userListing'])->name('userListing');
+Route::get('/userList', [UserController::class, 'userList'])->name('userList');
+
+Route::get('userList/userListing', [UserController::class, 'userListing'])->middleware('userListing');
 
 Route::get('/reset-password/{token}', [AuthController::class, 'activateUser'])->middleware('guest')->name('password.reset');
 
