@@ -52,6 +52,8 @@ Route::get('/Perfil_Personal/Editar_Perfil', [UserController::class, 'editarUsua
 Route::get('/privacy_policy', [RulesController::class, 'indexPrivacy'])->name('index.privacy')->middleware('auth');
 Route::get('/cookies_policy', [RulesController::class, 'indexCookies'])->name('index.cookies')->middleware('auth');
 Route::get('/terms', [RulesController::class, 'indexTerms'])->name('index.terms')->middleware('auth');
+Route::get('/edit_terms', [RulesController::class, 'editTerms'])->name('edit.terms')->middleware('auth');
+Route::post('/edit_terms', [RulesController::class, 'storeTerms'])->name('store.terms')->middleware('auth');
 
 Route::get('/admin', function () {
     return view('layouts/admin');
