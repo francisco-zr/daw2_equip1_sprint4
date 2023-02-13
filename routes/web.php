@@ -45,7 +45,8 @@ Route::post('/', [AuthController::class, 'login'])->middleware('guest')->name('l
 
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
-Route::get('llistatEmpreses/listCompanies', [CompanyController::class, 'listCompanies'])->middleware('auth');
+Route::get('listadoEmpresas/listCompanies', [CompanyController::class, 'listCompanies'])->middleware('auth');
+Route::post('listadoEmpresas/createCompany', [CompanyController:: class, 'storeCompany'])->middleware('auth');
 
 Route::get('/Perfil_Personal', [UserController::class, 'users'])->name('Perfil-Personal')->middleware('auth');
 
