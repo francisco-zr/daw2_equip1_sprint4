@@ -119,7 +119,7 @@ export default {
         return {
             user: window.authUser,
             navigation: [
-                { name: 'Inicio', href: '#', current: true, icon: HomeIcon },
+                { name: 'Inicio', href: '/home', current: true, icon: HomeIcon },
                 { name: 'Encuestas', href: '#', current: false, icon: QuestionMarkCircleIcon },
                 { name: 'Formación', href: '#', current: false, icon: AcademicCapIcon },
                 { name: 'Presupuestos', href: '#', current: false, icon: CurrencyEuroIcon },
