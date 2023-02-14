@@ -15,8 +15,6 @@ app.component('admin-layout', admin);
 const listcompany = defineAsyncComponent(() => import('./components/ListCompany.vue'));
 app.component('list-company', listcompany);
 
-const addcompany = defineAsyncComponent(() => import('./components/AddCompany.vue'));
-app.component('add-company', addcompany);
 const quillEditor = defineAsyncComponent(() => import('./components/Editor.vue'));
 app.component('editor', quillEditor);
 
