@@ -57,8 +57,17 @@ Route::patch('/Perfil_Personal/Editar_Perfil', [UserController::class, 'updatePr
 Route::get('/privacy_policy', [RulesController::class, 'indexPrivacy'])->name('index.privacy')->middleware('auth');
 Route::get('/cookies_policy', [RulesController::class, 'indexCookies'])->name('index.cookies')->middleware('auth');
 Route::get('/terms', [RulesController::class, 'indexTerms'])->name('index.terms')->middleware('auth');
-Route::get('/edit_terms', [RulesController::class, 'editTerms'])->name('edit.terms')->middleware('auth');
+Route::get('/edit_terms', [RulesController::class, 'indexEditTerms'])->name('edit.terms')->middleware('auth');
 Route::post('/edit_terms', [RulesController::class, 'storeTerms'])->name('store.terms')->middleware('auth');
+Route::get('/edit_terms/get', [RulesController::class, 'listTerms'])->name('list.terms')->middleware('auth');
+
+Route::get('/edit_cookies', [RulesController::class, 'indexEditCookies'])->name('edit.cookies')->middleware('auth');
+Route::post('/edit_cookies', [RulesController::class, 'storeCookies'])->name('store.cookies')->middleware('auth');
+Route::get('/edit_cookies/get', [RulesController::class, 'listCookies'])->name('list.cookies')->middleware('auth');
+
+Route::get('/edit_privacy', [RulesController::class, 'indexEditPrivacy'])->name('edit.privacy')->middleware('auth');
+Route::post('/edit_privacy', [RulesController::class, 'storePrivacy'])->name('store.privacy')->middleware('auth');
+Route::get('/edit_privacy/get', [RulesController::class, 'listPrivacy'])->name('list.privacy')->middleware('auth');
 
 Route::get('/admin', function () {
     return view('layouts/admin');

@@ -8,6 +8,6 @@
             </p>
         </div>
     </div>
-    <editor url="/edit_terms" />
+    <editor url="/edit_terms" db="terms"/>
 
 @stop
