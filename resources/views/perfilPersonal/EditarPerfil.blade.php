@@ -9,23 +9,16 @@
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
 
-                                <img src="/img/imatgeTatiana.png" alt="imagen_del_usuario" class="mb-3 img-fluid">
-                                <h4>{{ $authenticatedUser->name }} {{ $authenticatedUser->last_name }}</h4>
-                                <button class="boton1">
-                                    Cambiar foto
-                                </button>
+                                <img src="{{ $authenticatedUser->profile_image ? $authenticatedUser->profile_image : asset('img/default_profile.png') }}" alt="imagen_del_usuario" class="mb-3 rounded-full w-48 h-48" id="block">
+                                <h4 id="block1" class="text-2xl font-bold">{{ $authenticatedUser->name }} {{ $authenticatedUser->last_name }}</h4>
+                                </div>
+                              
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-8 right-table">
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <form action="{{ route('profile.update') }}" method="POST">
-                                        @csrf
-                                        @method('PATCH')
+                                  
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
@@ -74,11 +67,16 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <button type="submit" class="boton1">Guardar cambios</button>
-                                        <button class="boton1">Cambiar contraseña</button>
-                                        <a class="boton1" href="/Perfil_Personal">Cancelar</a>
+                                        <button type="submit"
+                                            class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out">Guardar
+                                            cambios</button>
+                                        <button id="open-modal"
+                                            class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out">Cambiar
+                                            contraseña</button>
+                                        <a
+                                            class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out"href="/Perfil_Personal">Cancelar</a>
                                 </div>
-                                </form>
+
                             </div>
                         </div>
                     </div>
@@ -86,8 +84,7 @@
             </div>
         </div>
 
-        <!-- Change Image Modal -->
-    </div>
+     
 @endsection
 
 <style>
@@ -113,16 +110,6 @@
         margin: 0 auto;
     }
 
-    .gutters-sm {
-        padding: 20px;
-    }
-
-    .card {
-        background-color: #fff;
-        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-    }
-
     .img-fluid {
         max-width: 200px;
         height: auto;
@@ -140,12 +127,11 @@
     }
 
     h4 {
+        /*donarli forma al text del nom i cognom on esta la imatge*/
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        max-width: 100px;
     }
-
 
     td:first-child {
         padding-right: 20px;
@@ -163,25 +149,5 @@
     tr:nth-child(even) {
         /*Ficar color a les linies pars*/
         background-color: white;
-    }
-
-    .boton1 {
-        background-color: rgb(247, 192, 115);
-        color: rgb(0, 0, 0);
-        border: 2px solid rgb(0, 0, 0);
-        border-radius: 5px;
-        font-size: 16px;
-        padding: 10px 20px;
-        transition: all 0.2s ease-in-out;
-        margin-left: 10px;
-        margin-top: 5%;
-
-    }
-
-    .boton1:hover {
-        background-color: white;
-        color: rgb(0, 0, 0);
-        cursor: pointer;
-        transform: scale(1.1);
     }
 </style>
