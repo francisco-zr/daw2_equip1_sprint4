@@ -17,7 +17,9 @@ class UserController extends Controller
     }
     public function userListing()
     {
+        $varusers = User::all(['name','lastname','email','phone']);
         
+        return $varusers;
     }
     public function users()
     {
