@@ -33,7 +33,7 @@
 
 <body class="flex flex-col min-h-screen">
     <div id="app">
-        <div class="sticky top-0 left-0 right-0">
+        <div class="sticky top-0 left-0 right-0 z-10">
             <!-- Vue.js Header and Navbar -->
             <navbar />
         </div>

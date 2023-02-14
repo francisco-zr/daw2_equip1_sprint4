@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
 
+    public function userList()
+    {
+        return view('users.list_of_users');
+    }
+    public function userListing()
+    {
+        
+    }
     public function users()
     {
         $authenticatedUser = Auth::user();

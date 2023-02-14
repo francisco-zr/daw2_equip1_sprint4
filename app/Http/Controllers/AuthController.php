@@ -26,10 +26,6 @@ class AuthController extends Controller
         return view('auth.lost_password');
     }
     // envía un link para recuperar password
-    public function userListing()
-    {
-        return view('auth.list_of_users');
-    }
     public function rememberSend(Request $request): RedirectResponse
     {
         $request->validate(['email' => 'required|email']);

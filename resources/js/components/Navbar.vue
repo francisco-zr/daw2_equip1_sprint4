@@ -109,7 +109,7 @@
 
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-import { AcademicCapIcon, Bars3Icon, BellIcon, CalendarDaysIcon, CurrencyEuroIcon, HomeIcon, QuestionMarkCircleIcon, QrCodeIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { AcademicCapIcon, Bars3Icon, BellIcon, CalendarDaysIcon, CurrencyEuroIcon, HomeIcon, QuestionMarkCircleIcon, QrCodeIcon, XMarkIcon, UserIcon, BriefcaseIcon } from '@heroicons/vue/24/outline'
 import VueAvatar from "@webzlodimir/vue-avatar";
 import "@webzlodimir/vue-avatar/dist/style.css";
 </script>
@@ -125,11 +125,13 @@ export default {
                 { name: 'Presupuestos', href: '#', current: false, icon: CurrencyEuroIcon },
                 { name: 'Calendario', href: '#', current: false, icon: CalendarDaysIcon },
                 { name: 'Inventario', href: '#', current: false, icon: QrCodeIcon },
+                { name: 'Empresas', href: '/llistatEmpreses', current: false, icon: BriefcaseIcon },
+                { name: 'Usuarios', href: '/userList', current: false, icon: UserIcon },
             ],
             userNavigation: [
                 { name: 'Mi Perfil', href: '/Perfil_Personal' },
                 { name: 'Ajustes', href: '#' },
-                { name: 'Admin', href: '#' },
+                { name: 'Admin Mode', href: '/admin' },
                 { name: 'Cerrar Sesión', href: '/logout' },
             ],
         };
