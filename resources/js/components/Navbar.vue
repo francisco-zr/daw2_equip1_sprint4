@@ -131,7 +131,7 @@ export default {
             userNavigation: [
                 { name: 'Mi Perfil', href: '/Perfil_Personal' },
                 { name: 'Ajustes', href: '#' },
-                { name: 'Admin', href: '#' },
+                { name: 'Admin Mode', href: '/admin' },
                 { name: 'Cerrar Sesión', href: '/logout' },
             ],
         };

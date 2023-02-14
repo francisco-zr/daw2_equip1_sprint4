@@ -1,5 +1,4 @@
 <template>
-    <div class="min-h-full">
         <TransitionRoot as="template" :show="sidebarOpen">
             <Dialog as="div" class="relative z-40 lg:hidden" @close="sidebarOpen = false">
                 <TransitionChild as="template" enter="transition-opacity ease-linear duration-300"
@@ -63,14 +62,14 @@
         <!-- Static sidebar for desktop -->
         <div class="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
             <!-- Sidebar component, swap this element with another sidebar if you like -->
-            <div class="flex flex-grow flex-col overflow-y-auto bg-orange-700 pt-5 pb-4">
+            <div class="flex flex-grow flex-col overflow-y-auto bg-orange-600 pt-5 pb-4">
                 <div class="flex flex-shrink-0 items-center px-4">
                     <ShieldExclamationIcon class="h-6 w-6 text-black mr-3" aria-hidden="true" />pymeshield
                 </div>
                 <nav class="mt-5 flex flex-1 flex-col divide-y divide-orange-800 overflow-y-auto" aria-label="Sidebar">
                     <div class="space-y-1 px-2">
                         <a v-for="item in navigation" :key="item.name" :href="item.href"
-                            :class="[item.current ? 'bg-orange-800 text-white' : 'text-orange-100 hover:text-white hover:bg-orange-600', 'group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md']"
+                            :class="[item.current ? 'bg-orange-800 text-white' : 'text-orange-100 hover:text-white hover:bg-orange-500', 'group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md']"
                             :aria-current="item.current ? 'page' : undefined">
                             <component :is="item.icon" class="mr-4 h-6 w-6 flex-shrink-0 text-orange-200"
                                 aria-hidden="true" />
@@ -102,7 +101,7 @@
                 <div class="flex flex-1 justify-between px-4 sm:px-6 lg:mx-auto lg:max-w-6xl lg:px-8">
                     <div class="flex flex-1">
                         <form class="flex w-full md:ml-0" action="#" method="GET">
-                            <label for="search-field" class="sr-only">Search</label>
+                            <label for="search-field" class="sr-only">Buscar</label>
                             <div class="relative w-full text-gray-400 focus-within:text-gray-600">
                                 <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center"
                                     aria-hidden="true">
@@ -110,7 +109,7 @@
                                 </div>
                                 <input id="search-field" name="search-field"
                                     class="block h-full w-full border-transparent py-2 pl-8 pr-3 text-gray-900 placeholder-gray-500 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-                                    placeholder="Search transactions" type="search" />
+                                    placeholder="Buscar" type="search" />
                             </div>
                         </form>
                     </div>
@@ -127,7 +126,7 @@
                                 <MenuButton
                                     class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 lg:rounded-md lg:p-2 lg:hover:bg-gray-50">
                                     <vue-avatar v-if="!user.profile_image" :size="40" :username="user.name" />
-                            <vue-avatar v-else :size="40" :img-src="user.profile_image" />
+                                    <vue-avatar v-else :size="40" :img-src="user.profile_image" />
                                     <ChevronDownIcon class="ml-1 hidden h-5 w-5 flex-shrink-0 text-gray-400 lg:block"
                                         aria-hidden="true" />
                                 </MenuButton>
@@ -142,16 +141,15 @@
                                     class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                     <MenuItem v-slot="{ active }">
                                     <a href="#"
-                                        :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Your
-                                        Profile</a>
+                                        :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Perfil</a>
                                     </MenuItem>
                                     <MenuItem v-slot="{ active }">
-                                    <a href="#"
-                                        :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Settings</a>
+                                    <a href="/home"
+                                        :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">User mode</a>
                                     </MenuItem>
                                     <MenuItem v-slot="{ active }">
-                                    <a href="#"
-                                        :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Logout</a>
+                                    <a href="/logout"
+                                        :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Cerrar Sesión</a>
                                     </MenuItem>
                                 </MenuItems>
                             </transition>
@@ -167,7 +165,7 @@
                             <!-- Profile -->
                             <div class="flex items-center">
                                 <vue-avatar v-if="!user.profile_image" :size="60" :username="user.name" />
-                            <vue-avatar v-else :size="60" :img-src="user.profile_image" />
+                                <vue-avatar v-else :size="60" :img-src="user.profile_image" />
                                 <div>
                                     <div class="flex items-center">
                                         <h1
@@ -197,7 +195,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
 </template>
 
 <script setup>
@@ -215,10 +213,7 @@ import {
 import {
     Bars3CenterLeftIcon,
     BellIcon,
-    ClockIcon,
     CogIcon,
-    CreditCardIcon,
-    DocumentChartBarIcon,
     HomeIcon,
     LockClosedIcon,
     QuestionMarkCircleIcon,
@@ -229,11 +224,9 @@ import {
     XMarkIcon,
 } from '@heroicons/vue/24/outline'
 import {
-    BanknotesIcon,
-    BuildingOfficeIcon,
+    AcademicCapIcon, CurrencyEuroIcon, CalendarDaysIcon, QrCodeIcon, BriefcaseIcon, UserIcon,
     CheckCircleIcon,
     ChevronDownIcon,
-    ChevronRightIcon,
     MagnifyingGlassIcon,
 } from '@heroicons/vue/20/solid'
 import VueAvatar from "@webzlodimir/vue-avatar";
@@ -247,17 +240,20 @@ export default {
         return {
             user: window.authUser,
             navigation: [
-                { name: "Inicio", href: "#", icon: HomeIcon, current: true },
-                { name: "History", href: "#", icon: ClockIcon, current: false },
-                { name: "Balances", href: "#", icon: ScaleIcon, current: false },
-                { name: "Cards", href: "#", icon: CreditCardIcon, current: false },
-                { name: "Recipients", href: "#", icon: UserGroupIcon, current: false },
-                { name: "Reports", href: "#", icon: DocumentChartBarIcon, current: false },
+                { name: 'Inicio', href: '#', current: true, icon: HomeIcon },
+                { name: 'Encuestas', href: '#', current: false, icon: QuestionMarkCircleIcon },
+                { name: 'Formación', href: '#', current: false, icon: AcademicCapIcon },
+                { name: 'Presupuestos', href: '#', current: false, icon: CurrencyEuroIcon },
+                { name: 'Calendario', href: '#', current: false, icon: CalendarDaysIcon },
+                { name: 'Inventario', href: '#', current: false, icon: QrCodeIcon },
+                { name: 'Empresas', href: '#', current: false, icon: BriefcaseIcon },
+                { name: 'Usuarios', href: '#', current: false, icon: UserIcon },
             ],
             secondaryNavigation: [
-                { name: "Settings", href: "#", icon: CogIcon },
-                { name: "Help", href: "#", icon: QuestionMarkCircleIcon },
-                { name: "Privacy", href: "#", icon: ShieldCheckIcon },
+                { name: "Ajustes", href: "#", icon: CogIcon },
+                { name: "Editar Términos", href: "/edit_terms", icon: CogIcon },
+                { name: "Editar Privacidad", href: "/edit_privacy", icon: QuestionMarkCircleIcon },
+                { name: "Editar Cookies", href: "/edit_cookies", icon: ShieldCheckIcon },
             ],
         };
     },
