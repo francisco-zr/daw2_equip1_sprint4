@@ -35,7 +35,7 @@ Route::post('/lost-password', [AuthController::class, 'rememberSend'])->name('re
 
 Route::get('/userList', [UserController::class, 'userList'])->name('userList');
 
-Route::get('userList/userListing', [UserController::class, 'userListing'])->middleware('userListing');
+Route::get('userList/userListing', [UserController::class, 'userListing'])->middleware('auth');
 
 Route::get('/reset-password/{token}', [AuthController::class, 'activateUser'])->middleware('guest')->name('password.reset');
 

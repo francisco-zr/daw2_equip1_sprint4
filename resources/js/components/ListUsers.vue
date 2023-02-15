@@ -24,7 +24,7 @@
                     {{ user.name }}
                 </th>
                 <td class="px-6 py-4">
-                    {{ user.lastname }}
+                    {{ user.last_name }}
                 </td>
                 <td class="px-6 py-4">
                     {{ user.email }}
