@@ -17,7 +17,7 @@
                         <MenuButton
                             class="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <span class="sr-only">Abrir menú de usuario</span>
-                            <vue-avatar v-if="!user.profile_image" :size="40" :username="user.name" />
+                            <vue-avatar v-if="!user.profile_image" :size="40" :username="user.name + user.last_name" />
                             <vue-avatar v-else :size="40" :img-src="user.profile_image" />
                         </MenuButton>
                     </div>
@@ -83,11 +83,11 @@
                 <div class="border-t border-gray-700 pt-4 pb-3">
                     <div class="flex items-center px-5">
                         <div class="flex-shrink-0">
-                            <vue-avatar v-if="!user.profile_image" :size="40" :username="user.name" />
+                            <vue-avatar v-if="!user.profile_image" :size="40" :username="user.name + user.last_name" />
                             <vue-avatar v-else :size="40" :img-src="user.profile_image" />
                         </div>
                         <div class="ml-3">
-                            <div class="text-base font-medium leading-none text-gray-900">{{ user.name }}</div>
+                            <div class="text-base font-medium leading-none text-gray-900">{{ user.name + ' ' + user.last_name }}</div>
                             <div class="text-sm font-medium leading-none text-gray-700">{{ user.email }}</div>
                         </div>
                         <button type="button"
