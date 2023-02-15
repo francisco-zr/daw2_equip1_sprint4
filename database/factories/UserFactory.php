@@ -22,7 +22,7 @@ class UserFactory extends Factory
         $company_id = Company::all()->pluck('id')->toArray();
 
         return [
-            'name' => fake()->name(),
+            'name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
