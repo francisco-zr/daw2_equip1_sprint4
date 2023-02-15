@@ -12,7 +12,7 @@ class CompanyController extends Controller
     }
 
     public function listCompanies(){
-        $companies = Company::all(['name','email','phone','cif'])->whereNull('hidden');
+        $companies = Company::all(['id','name','email','phone','cif'])->whereNull('hidden');
 
         return $companies;
     }
@@ -24,5 +24,26 @@ class CompanyController extends Controller
         $company->phone = $request->phone;
         $company->cif =   $request->cif;
         $company->save();
+    }
+
+    public function editCompany(Request $request){
+        $requestData = $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'phone' => 'required|integer',
+            'cif' => 'required|string'
+        ]);
+
+        $company = Company::findOrFail($request->id);
+        $company->update($requestData);
+    }
+
+    public function unsuscribeCompany(Request $request){
+        $requestData= $request->validate([
+            'removed_reason' => 'nullable|max:255|string'
+        ]);
+
+        $company = Company::findOrFail($request->id);
+        $company->update($requestData);
     }
 }
