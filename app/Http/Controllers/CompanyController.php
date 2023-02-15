@@ -12,7 +12,7 @@ class CompanyController extends Controller
     }
 
     public function listCompanies(){
-        $companies = Company::all(['name','email','phone','cif']);
+        $companies = Company::all(['name','email','phone','cif'])->whereNull('hidden');
 
         return $companies;
     }

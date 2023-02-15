@@ -3,10 +3,10 @@
         <button class="bg-orange-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5" @click=" openModalCrear()">Crear empresa</button>
     </div>
     <div class="m-10">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <table class="w-full text-base text-left text-gray-500 dark:text-gray-400 text-center">
         <thead class="text-xs text-gray-700 uppercase bg-orange-400 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-3 ">
                     Nombre empresa
                 </th>
                 <th scope="col" class="px-6 py-3">
@@ -25,7 +25,7 @@
         </thead>
         <tbody v-if="companies.length > 0">
             <tr v-for="(company, key) in companies" :key="key" class="bg-gray-100 border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white    ">
                     {{ company.name }}
                 </th>
                 <td class="px-6 py-4">
@@ -37,9 +37,9 @@
                 <td class="px-6 py-4">
                     {{ company.cif }}
                 </td>
-                <td class="px-6 py-4" >
-                    <button>Eliminar</button>
-                    <button class="bg-orange-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5" @click="this.openModalEditar(company.name, company.email, company.phone, company.cif)">Editar</button>
+                <td class="px-4 py-4 text-center align-middle" >
+                    <button class="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-2 ml-2 rounded "><ArchiveBoxArrowDownIcon class="h-6 w-6 text-white-400" aria-hidden="true" /></button>
+                    <button class="bg-orange-400 hover:bg-orange-600  text-white font-bold py-2 px-2 ml-2 rounded" @click="this.openModalEditar(company.name, company.email, company.phone, company.cif)"><PencilSquareIcon class="h-6 w-6 text-white-400" aria-hidden="true" /></button>
                 </td>
             </tr>
         </tbody>
@@ -219,64 +219,65 @@ export default {
             NotificacionCrear: ref(false),
             ModalEditar: ref(false),
             companies: [],
-            crear: {nameCrear: '', emailCrear: '', phoneCrear: '', cifCrear: ''},
-            editar: {nameEditar: '',emailEditar: '', phoneEditar: '',cifEditar: ''},
+            crear: { nameCrear: "", emailCrear: "", phoneCrear: "", cifCrear: "" },
+            editar: { nameEditar: "", emailEditar: "", phoneEditar: "", cifEditar: "" },
         };
     },
     mounted() {
-        this.getCompanies()
+        this.getCompanies();
     },
-    methods:{
-        openModalCrear(){
-            this.ModalCrear = true
+    methods: {
+        openModalCrear() {
+            this.ModalCrear = true;
         },
-        openModalEditar(name, email, phone, cif){
-            this.ModalEditar = true
-            this.editar.nameEditar = name
-            this.editar.emailEditar = email
-            this.editar.phoneEditar = phone
-            this.editar.cifEditar = cif
+        openModalEditar(name, email, phone, cif) {
+            this.ModalEditar = true;
+            this.editar.nameEditar = name;
+            this.editar.emailEditar = email;
+            this.editar.phoneEditar = phone;
+            this.editar.cifEditar = cif;
         },
-        getCompanies(){
+        getCompanies() {
             axios.get("/listadoEmpresas/listCompanies")
-            .then(response => {
-            this.companies = [];
-            this.companies = response.data;
+                .then(response => {
+                this.companies = [];
+                this.companies = response.data;
             })
-            .catch(error => {
-            console.log(error);
+                .catch(error => {
+                console.log(error);
             });
         },
-        submitFormCrear(){
+        submitFormCrear() {
             axios.post("listadoEmpresas/createCompany", {
                 name: this.crear.nameCrear,
                 email: this.crear.emailCrear,
                 phone: this.crear.phoneCrear,
                 cif: this.crear.cifCrear
             })
-            .then(response => {
-                this.getCompanies()
+                .then(response => {
+                this.getCompanies();
                 console.log(response);
-                this.ModalCrear = false
-                this.crear.nameCrear = ''
-                this.crear.emailCrear = ''
-                this.crear.phoneCrear = ''
-                this.crear.cifCrear = ''
-                this.NotificacionCrear = true
-                setTimeout(() => { this.NotificacionCrear = false }, 2500);
+                this.ModalCrear = false;
+                this.crear.nameCrear = "";
+                this.crear.emailCrear = "";
+                this.crear.phoneCrear = "";
+                this.crear.cifCrear = "";
+                this.NotificacionCrear = true;
+                setTimeout(() => { this.NotificacionCrear = false; }, 2500);
             })
-            .catch(error => {
+                .catch(error => {
                 console.error(error);
-            })
+            });
         }
     },
+    components: { PencilSquareIcon }
 };
 </script>
 
 <script setup>
 import { ref } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
-import { PlusCircleIcon, ShieldCheckIcon } from '@heroicons/vue/24/outline'
+import { PlusCircleIcon, ShieldCheckIcon, ArchiveBoxArrowDownIcon, PencilSquareIcon } from '@heroicons/vue/24/outline'
 </script>
 
 
