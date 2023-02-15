@@ -32,21 +32,15 @@
 </head>
 
 <body class="h-full">
-        <!-- Vue.js Header and Navbar -->
-        <main class="flex-1 pb-8">
-    <!-- Vue.js javascript -->
-    @vite('resources/js/app.js')
+    <!-- Vue.js Header and Navbar -->
+        <!-- Vue.js javascript -->
         <div id="app">
-            <admin-layout />
-            @yield('content')
-            <div class="mt-8">
-                <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                    test
-                </div>
+            <div><admin-layout /></div>
+            <main class="h-full flex-1 pb-8 lg:ml-64">
 
-              </div>
-            </main>
-        </div>
+            @yield('content')</div>
+    </main>
+    @vite('resources/js/app.js')
 </body>
 
 </html>
