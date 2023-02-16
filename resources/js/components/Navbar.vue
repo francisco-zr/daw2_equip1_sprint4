@@ -127,7 +127,7 @@ export default {
                 { name: 'Inventario', href: '#', current: false, icon: QrCodeIcon },
             ],
             userNavigation: [
-                { name: 'Mi Perfil', href: '/Perfil_Personal' },
+                { name: 'Mi Perfil', href: '/Personal_Profile' },
                 { name: 'Ajustes', href: '#' },
                 { name: 'Admin Mode', href: '/admin' },
                 { name: 'Cerrar Sesión', href: '/logout' },
