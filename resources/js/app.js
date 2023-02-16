@@ -21,5 +21,8 @@ app.component('editor', quillEditor);
 const listusers = defineAsyncComponent(() => import('./components/ListUsers.vue'));
 app.component('list-users', listusers);
 
+const perfilPersonal = defineAsyncComponent(() => import('./components/PerfilPersonal.vue'));
+app.component('PerfilPersonal', perfilPersonal);
+
 // se monta la app
 app.mount("#app");

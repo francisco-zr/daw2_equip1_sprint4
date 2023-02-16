@@ -17,22 +17,45 @@ class UserController extends Controller
     }
     public function userListing()
     {
+<<<<<<< HEAD
         $varusers = User::all(['name','last_name','email','phone']);
         
         return $varusers;
+=======
+>>>>>>> 3d06fe8 (Pagina de perfil personal en vue (no esta acabada))
     }
     public function users()
     {
         $authenticatedUser = Auth::user();
         return view('perfilPersonal.PerfilPersonal', compact('authenticatedUser'));
     }
+    public function show_user()
+    {
+        return view('perfilPersonal.perfil_personal');
+    }
+
+    public function updateUserInfo(Request $request)
+    {
+        $user = Auth::user();
+        $user->name = $request->input('name');
+        $user->last_name = $request->input('last_name');
+        $user->nick_name = $request->input('nick_name');
+        $user->email = $request->input('email');
+        $user->phone = $request->input('phone');
+        $user->save();
+    
+        return redirect()->route('Personal-Profile')->with('success', 'Información actualizada con éxito');
+    }
+    
+
+
     public function editarUsuario()
     {
         $authenticatedUser = Auth::user();
         return view('perfilPersonal.EditarPerfil', compact('authenticatedUser'));
     }
 
-    public function updateProfile(Request $request)
+    /*public function updateProfile(Request $request)
     {
         $authenticatedUser = Auth::user();
         $updatedUser = User::find($authenticatedUser->id);
@@ -55,4 +78,5 @@ class UserController extends Controller
 
         return redirect()->route('Editar-Perfil')->with('success', 'Información actualizada con éxito');
     }
+    */
 }

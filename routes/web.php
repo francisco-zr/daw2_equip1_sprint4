@@ -7,6 +7,7 @@ use App\Http\Controllers\RulesController;
 use App\Models\Company;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,14 +48,26 @@ Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::get('listadoEmpresas/listCompanies', [CompanyController::class, 'listCompanies'])->middleware('auth');
 Route::post('listadoEmpresas/createCompany', [CompanyController:: class, 'storeCompany'])->middleware('auth');
+<<<<<<< HEAD
 Route::post('listadoEmpresas/editCompany', [CompanyController:: class, 'editCompany'])->middleware('auth');
 Route::post('listadoEmpresas/unsuscribeCompany', [CompanyController:: class, 'unsuscribeCompany'])->middleware('auth');
 
+=======
+//Rutes per al perfil Personal i editarPerfil
+>>>>>>> 3d06fe8 (Pagina de perfil personal en vue (no esta acabada))
 Route::get('/Perfil_Personal', [UserController::class, 'users'])->name('Perfil-Personal')->middleware('auth');
+Route::get('/Personal_Profile', [UserController::class, 'show_user'])->name('Personal-Profile')->middleware('auth');
+
+Route::get('/user-info', function () {
+    $user = Auth::user();
+    return response()->json($user);
+});
+
+Route::put('/updateUserInfo', [UserController::class, 'updateUserInfo'])->name('updateUserInfo');
 
 Route::get('/Perfil_Personal/Editar_Perfil', [UserController::class, 'editarUsuario'])->name('Editar-Perfil')->middleware('auth');
 Route::patch('/Perfil_Personal/Editar_Perfil', [UserController::class, 'updateProfile'])->name('profile.update');
-
+///////
 
 Route::get('/privacy_policy', [RulesController::class, 'indexPrivacy'])->name('index.privacy')->middleware('auth');
 Route::get('/cookies_policy', [RulesController::class, 'indexCookies'])->name('index.cookies')->middleware('auth');
