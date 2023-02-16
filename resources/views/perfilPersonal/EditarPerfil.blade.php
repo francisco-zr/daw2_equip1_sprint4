@@ -74,7 +74,7 @@
                             style="margin-top: 20px;">
                             Guardar cambios
                         </button>
-                        <button id="open-modal"
+                        <button id="open-modal" type="button"
                             class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2"
                             style="margin-top: 20px;">
                             Cambiar contraseña
