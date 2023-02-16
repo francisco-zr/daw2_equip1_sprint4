@@ -8,94 +8,109 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-
-                                <img src="{{ $authenticatedUser->profile_image ? $authenticatedUser->profile_image : asset('img/default_profile.png') }}" alt="imagen_del_usuario" class="mb-3 rounded-full w-48 h-48" id="block">
-                                <h4 id="block1" class="text-2xl font-bold">{{ $authenticatedUser->name }} {{ $authenticatedUser->last_name }}</h4>
-                                </div>
-                              
+                                <img src="{{ $authenticatedUser->profile_image ? $authenticatedUser->profile_image : asset('img/default_profile.png') }}"
+                                    alt="imagen_del_usuario" class="mb-3 rounded-full w-48 h-48" id="block">
+                                <h4 id="block1" class="text-2xl font-bold ">
+                                    {{ $authenticatedUser->name }} {{ $authenticatedUser->last_name }}
+                                </h4>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-8 right-table">
-                                  
-                                        <table class="table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <h3 style="text-align: center;">Información personal</h3>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Nombre</td>
-                                                    <td>
-                                                        <input name="name" type="text"
-                                                            value="{{ $authenticatedUser->name }}" />
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Apellidos</td>
-                                                    <td>
-                                                        <input name="last_name" type="text"
-                                                            value="{{ $authenticatedUser->last_name }}" />
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Nombre de usuario</td>
-                                                    <td>
-                                                        <input name="nick_name" type="text"
-                                                            value="{{ $authenticatedUser->nick_name }}" />
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Email</td>
-                                                    <td>
-                                                        <input name="email" type="text"
-                                                            value="{{ $authenticatedUser->email }}" />
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Teléfono</td>
-                                                    <td>
-                                                        <input name="phone" type="text"
-                                                            value="{{ $authenticatedUser->phone }}" />
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Empresa</td>
-                                                    <td>Pymeralia</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <button type="submit"
-                                            class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out">Guardar
-                                            cambios</button>
-                                        <button id="open-modal"
-                                            class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out">Cambiar
-                                            contraseña</button>
-                                        <a
-                                            class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out"href="/Perfil_Personal">Cancelar</a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="mt-5 font-bold" style="text-align: center;">Información personal</h3>
+                    <form method="POST" action="{{ route('profile.update') }}">
+                        @csrf
+                        @method('PATCH')
+                        <table class="table table-striped p-6">
+                            <thead>
+                                <tr>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>
+                                        <input name="name" type="text" value="{{ $authenticatedUser->name }}"
+                                            maxlength="20" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Apellidos</td>
+                                    <td>
+                                        <input name="last_name" type="text" value="{{ $authenticatedUser->last_name }}"
+                                            maxlength="20" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Nombre de usuario</td>
+                                    <td>
+                                        <input name="nick_name" type="text" value="{{ $authenticatedUser->nick_name }}"
+                                            maxlength="20" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>
+                                        <input name="email" type="text" value="{{ $authenticatedUser->email }}"
+                                            maxlength="20" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Teléfono</td>
+                                    <td>
+                                        <input name="phone" type="text" value="{{ $authenticatedUser->phone }}"
+                                            maxlength="20" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Empresa</td>
+                                    <td>Pymeralia</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button type="submit"
+                            class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2"
+                            style="margin-top: 20px;">
+                            Guardar cambios
+                        </button>
+                        <button id="open-modal"
+                            class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2"
+                            style="margin-top: 20px;">
+                            Cambiar contraseña
+                        </button>
+                        <a class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2"
+                            href="/Personal_Profile" style="margin-top: 20px;">
+                            Cancelar
+                        </a>
+                    </form>
                 </div>
             </div>
         </div>
-
-     
+    </div>
 @endsection
-
 <style>
+
+    #block1{
+        margin-right:0px ; 
+
+    }
     .left-table {
         float: left;
-        margin-left: 100px;
+        margin-left: 80px;
+        margin-top: 40px;
+        text-align: center;
     }
 
     .right-table {
         float: right;
         margin-right: 100px;
+        margin-bottom: 20px;
+    }
+
+    button,
+    a {
+        margin-top: 20px;
     }
 
     .container {
@@ -124,6 +139,9 @@
         border: 1px solid black;
         width: 100%;
         height: 70%;
+        border-collapse: separate;
+        border-spacing: 10px;
+        margin-left: 12%;
     }
 
     h4 {

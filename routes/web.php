@@ -48,14 +48,10 @@ Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::get('listadoEmpresas/listCompanies', [CompanyController::class, 'listCompanies'])->middleware('auth');
 Route::post('listadoEmpresas/createCompany', [CompanyController:: class, 'storeCompany'])->middleware('auth');
-<<<<<<< HEAD
 Route::post('listadoEmpresas/editCompany', [CompanyController:: class, 'editCompany'])->middleware('auth');
 Route::post('listadoEmpresas/unsuscribeCompany', [CompanyController:: class, 'unsuscribeCompany'])->middleware('auth');
 
-=======
 //Rutes per al perfil Personal i editarPerfil
->>>>>>> 3d06fe8 (Pagina de perfil personal en vue (no esta acabada))
-Route::get('/Perfil_Personal', [UserController::class, 'users'])->name('Perfil-Personal')->middleware('auth');
 Route::get('/Personal_Profile', [UserController::class, 'show_user'])->name('Personal-Profile')->middleware('auth');
 
 Route::get('/user-info', function () {

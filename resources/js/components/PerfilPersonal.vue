@@ -6,8 +6,8 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="public/img/profile_images/imatgeTatiana.png" alt="imagen_del_usuario"
-                                    class="mb-3 rounded-full w-48 h-48" id="block" />
+                                <img :src="user.profile_image ? user.profile_image : '/img/default_profile.png'"
+                                    alt="imagen_del_usuario" class="mb-3 rounded-full w-48 h-48" id="block" />
                                 <h4 id="block1" class="text-2xl font-bold">
                                     {{ user.name }} {{ user.last_name }}
                                 </h4>
@@ -17,64 +17,53 @@
                 </div>
                 <div class="col-md-8 right-table">
                     <h3 class="mt-5 font-bold" style="text-align: center;">Información personal</h3>
-                    <form @submit.prevent="updateUserInfo">
-                        @csrf
-                        @method('PUT')
-                        <table class="table table-striped p-6">
-                            <thead>
-                                <tr>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Nombre</td>
-                                    <td>
-                                        <input name="name" type="text" :value="user.name" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Apellidos</td>
-                                    <td>
-                                        <input name="last_name" type="text" :value="user.last_name" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Nombre de usuario</td>
-                                    <td>
-                                        <input name="nick_name" type="text" :value="user.nick_name" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>
-                                        <input name="email" type="text" :value="user.email" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Teléfono</td>
-                                    <td>
-                                        <input name="phone" type="text" :value="user.phone" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Empresa</td>
-                                    <td>Pymeralia</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <button type="submit"
+                    <table class="table table-striped p-6">
+                        <thead>
+                            <tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nombre</td>
+                                <td>
+                                    {{ user.name }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Apellidos</td>
+                                <td>
+                                    {{ user.last_name }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Nombre de usuario</td>
+                                <td>
+                                    {{ user.nick_name }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>
+                                    {{ user.email }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Teléfono</td>
+                                <td>
+                                    {{ user.phone }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Empresa</td>
+                                <td>Pymeralia</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="/Perfil_Personal/Editar_Perfil"> <button
                             class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2">
-                            Guardar cambios
+                            Editar perfil
                         </button>
-                        <button id="open-modal"
-                            class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2">
-                            Cambiar contraseña
-                        </button>
-                        <a class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2"
-                            href="/Perfil_Personal">
-                            Cancelar
-                        </a>
-                    </form>
+                    </a>
                 </div>
             </div>
         </div>
@@ -95,13 +84,6 @@ export default {
             this.user = response.data;
         });
     },
-    methods: {
-        updateUserInfo() {
-            axios.put('/user-info', this.user).then(response => {
-                // hacer algo en respuesta
-            });
-        }
-    }
 };
 </script>
 
@@ -147,6 +129,7 @@ td {
 }
 
 table {
+    font-size: 16px;
     border: 1px solid black;
     width: 100%;
     height: 70%;
