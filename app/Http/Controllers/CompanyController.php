@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class CompanyController extends Controller
 {
@@ -12,7 +13,7 @@ class CompanyController extends Controller
     }
 
     public function listCompanies(){
-        $companies = Company::all(['id','name','email','phone','cif'])->whereNull('hidden');
+        $companies = Company::select(['id','name','email','phone','cif'])->whereNull('hidden')->get();
 
         return $companies;
     }
@@ -39,11 +40,16 @@ class CompanyController extends Controller
     }
 
     public function unsuscribeCompany(Request $request){
-        $requestData= $request->validate([
-            'removed_reason' => 'nullable|max:255|string'
+        $request->validate([
+            'removed_reason' => 'nullable|max:255|string',
         ]);
 
+        $currentTime = Carbon::now();
+
+
         $company = Company::findOrFail($request->id);
-        $company->update($requestData);
+        $company->removed_reason =  $request->removed_reason;
+        $company->hidden = $currentTime->toDateTimeString();
+        $company->update();
     }
 }

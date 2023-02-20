@@ -202,7 +202,7 @@
                             <div class="mt-2">
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Razon de la baja</label>
-                                    <textarea maxlength="255" v-model="baja.reason" class="w-full h-24 align-top bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:ring-orange-400 focus:border-orange-400" cols="auto" rows="10"></textarea>
+                                    <textarea maxlength="255" v-model="baja.removed_reason" class="w-full h-24 align-top bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:ring-orange-400 focus:border-orange-400" cols="auto" rows="10"></textarea>
                                     <input type="hidden" v-model="baja.id">
                                 </div>
                             </div>
@@ -326,7 +326,8 @@ export default {
             companies: [],
             crear: { nameCrear: "", emailCrear: "", phoneCrear: "", cifCrear: "" },
             editar: { id: "",nameEditar: "", emailEditar: "", phoneEditar: "", cifEditar: "" },
-            baja: {id:"", removed_reason:""}
+            baja: {id:"", removed_reason:""},
+            paginaActual: 1
         };
     },
     mounted() {
@@ -348,8 +349,13 @@ export default {
             this.baja.id = id;
             this.ModalBaja = true;
         },
-        getCompanies() {
-            axios.get("/listadoEmpresas/listCompanies")
+        getCompanies(page = 1, perPage = 10) {
+            axios.get("/listadoEmpresas/listCompanies",{
+            params: {
+                page: page,
+                per_page: perPage
+            }
+        })
                 .then(response => {
                 this.companies = [];
                 this.companies = response.data;
