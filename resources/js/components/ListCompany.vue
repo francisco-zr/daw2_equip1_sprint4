@@ -2,7 +2,7 @@
     <div class="grid justify-items-end mr-10">
         <button class="bg-orange-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5" @click=" openModalCrear()">Crear empresa</button>
     </div>
-    <div class="m-10">
+    <div class="m-5">
     <table class="w-full text-base text-left text-gray-500 dark:text-gray-400 text-center">
         <thead class="text-xs text-gray-700 uppercase bg-orange-400 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -194,7 +194,7 @@
                         <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
                         <PencilSquareIcon class="h-6 w-6 text-orange-400" aria-hidden="true" />
                         </div>
-                        <DialogTitle as="h3" class="text-lg font-medium leading-6 text-gray-900">Crear nueva empresa</DialogTitle>
+                        <DialogTitle as="h3" class="text-lg font-medium leading-6 text-gray-900">Dar de baja empresa</DialogTitle>
                     </div>
 
                     <div class="mt-3 text-center md:text-left">
