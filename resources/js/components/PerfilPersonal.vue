@@ -5,10 +5,10 @@
                 <div class="col-md-4 mb-3 left-table">
                     <div class="card">
                         <div class="card-body">
-                            <div class="d-flex flex-column align-items-center text-center">
+                            <div class="d-flex flex-column align-items-center text-center ">
                                 <img v-if="user.profile_image"
-                                    :src="`/img/profile_images/${authenticatedUser.profile_image}`" alt="imagen_del_usuario"
-                                    class="mb-3 rounded-full w-48 h-48" id="block">
+                                    :src="`/img/profile_images/${user.profile_image}`" alt="imagen_del_usuario"
+                                    class="mb-3 rounded-full w-48 h-48 ml-9" id="block">
                                 <img v-else src="/img/default_profile.png" alt="imagen_del_usuario"
                                     class="mb-3 rounded-full w-48 h-48" id="block">
                                 <h4 id="block1" class="text-2xl font-bold">
@@ -63,7 +63,7 @@
                         </tbody>
                     </table>
                     <a href="/Perfil_Personal/Editar_Perfil"> <button
-                            class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2 mt-3">
+                            class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 mx-2 mt-3">
                             Editar perfil
                         </button>
                     </a>

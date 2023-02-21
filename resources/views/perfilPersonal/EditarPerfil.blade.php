@@ -21,13 +21,13 @@
                                     enctype="multipart/form-data">
                                     @csrf
                                     <button type="button"
-                                        class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2 mt-3 mr-6"
+                                        class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 mx-2 mt-3 mr-6"
                                         onclick="document.getElementById('profile_image').click(); document.getElementById('save_changes_btn').style.display='block';">
                                         Cambiar imagen
                                     </button>
                                     <input type="file" name="profile_image" id="profile_image" style="display:none">
                                     <button type="submit"
-                                        class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2 mt-3 ml-9"
+                                        class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 mx-2 mt-3 ml-9"
                                         id="save_changes_btn" style="display:none">Guardar cambios</button>
                                 </form>
                             </div>
