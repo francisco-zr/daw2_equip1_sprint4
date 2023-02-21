@@ -83,3 +83,6 @@ Route::get('/edit_privacy/get', [RulesController::class, 'listPrivacy'])->name('
 Route::get('/admin', function () {
     return view('layouts/admin');
 })->middleware('auth');
+
+
+Route::post('/update-profile-image', [UserController::class, 'updateProfileImage'])->name('updateProfileImage');

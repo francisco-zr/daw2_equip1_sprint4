@@ -8,18 +8,35 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="{{ $authenticatedUser->profile_image ? $authenticatedUser->profile_image : asset('img/default_profile.png') }}"
-                                    alt="imagen_del_usuario" class="mb-3 rounded-full w-48 h-48" id="block">
+                                @if ($authenticatedUser->profile_image)
+                                <img src="{{ asset('img/profile_images/' . $authenticatedUser->profile_image) }}" alt="imagen_del_usuario" class="mb-3 rounded-full w-48 h-48 ml-6" id="block">
+                                @else
+                                    <img src="{{ asset('img/default_profile.png') }}" alt="imagen_del_usuario"
+                                        class="mb-3 rounded-full w-48 h-48" id="block">
+                                @endif
                                 <h4 id="block1" class="text-2xl font-bold ">
                                     {{ $authenticatedUser->name }} {{ $authenticatedUser->last_name }}
                                 </h4>
+                                <form action="{{ route('updateProfileImage') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <button type="button"
+                                        class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 mx-2 mt-3 mr-6"
+                                        onclick="document.getElementById('profile_image').click(); document.getElementById('save_changes_btn').style.display='block';">
+                                        Cambiar imagen
+                                    </button>
+                                    <input type="file" name="profile_image" id="profile_image" style="display:none">
+                                    <button type="submit"
+                                        class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 mx-2 mt-3 ml-9"
+                                        id="save_changes_btn" style="display:none">Guardar cambios</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-8 right-table">
-                    <h3 class="mt-5 font-bold" style="text-align: center;">Información personal</h3>
-                    <form method="POST" action="{{ route('profile.update') }}">
+                    <h3 class="mt-5 font-bold right-table1" style="text-align: center;">Información personal</h3>
+                    <form method="POST">
                         @csrf
                         @method('PATCH')
                         <table class="table table-striped p-6">
@@ -69,20 +86,23 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <!-- py-2 es per a donarli el grosor del boton
+                                px-4 es per a donarli la llargada del boton-->
                         <button type="submit"
-                            class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2"
+                            class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2 mt-3 ml-20"
                             style="margin-top: 20px;">
                             Guardar cambios
                         </button>
                         <button id="open-modal" type="button"
-                            class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2"
+                            class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2 mt-3"
                             style="margin-top: 20px;">
                             Cambiar contraseña
                         </button>
-                        <a class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2"
-                            href="/Personal_Profile" style="margin-top: 20px;">
+                        <a class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2 mt-3"
+                            href="/Personal_Profile" style="margin-top: 40px;">
                             Cancelar
                         </a>
+
                     </form>
                 </div>
             </div>
@@ -90,14 +110,14 @@
     </div>
 @endsection
 <style>
-
-    #block1{
-        margin-right:0px ; 
+    #block1 {
+        margin-right: 0px;
 
     }
+
     .left-table {
         float: left;
-        margin-left: 80px;
+        margin-left: 50px;
         margin-top: 40px;
         text-align: center;
     }
@@ -108,10 +128,12 @@
         margin-bottom: 20px;
     }
 
-    button,
-    a {
-        margin-top: 20px;
+    .right-table1 {
+        float: right;
+        margin-right: 100px;
+        margin-bottom: 5px;
     }
+
 
     .container {
         display: flex;
