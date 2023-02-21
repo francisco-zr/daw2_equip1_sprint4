@@ -126,7 +126,7 @@
                                 <MenuButton
                                     class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 lg:rounded-md lg:p-2 lg:hover:bg-gray-50">
                                     <vue-avatar v-if="!user.profile_image" :size="40" :username="user.name + user.last_name" />
-                                    <vue-avatar v-else :size="40" :img-src="user.profile_image" />
+                                    <vue-avatar v-else :size="40" :img-src="'/img/profile_images/'+user.profile_image" />
                                     <ChevronDownIcon class="ml-1 hidden h-5 w-5 flex-shrink-0 text-gray-400 lg:block"
                                         aria-hidden="true" />
                                 </MenuButton>
@@ -165,7 +165,7 @@
                             <!-- Profile -->
                             <div class="flex items-center">
                                 <vue-avatar v-if="!user.profile_image" :size="60" :username="user.name + user.last_name" />
-                                <vue-avatar v-else :size="60" :img-src="user.profile_image" />
+                                <vue-avatar v-else :size="60" :img-src="'/img/profile_images/'+user.profile_image" />
                                 <div>
                                     <div class="flex items-center">
                                         <h1
