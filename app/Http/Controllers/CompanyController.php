@@ -31,7 +31,7 @@ class CompanyController extends Controller
         $requestData = $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',
-            'phone' => 'required|integer',
+            'phone' => 'required|string',
             'cif' => 'required|string'
         ]);
 
