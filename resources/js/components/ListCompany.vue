@@ -349,13 +349,8 @@ export default {
             this.baja.id = id;
             this.ModalBaja = true;
         },
-        getCompanies(page = 1, perPage = 10) {
-            axios.get("/listadoEmpresas/listCompanies",{
-            params: {
-                page: page,
-                per_page: perPage
-            }
-        })
+        getCompanies() {
+            axios.get("/listadoEmpresas/listCompanies")
                 .then(response => {
                 this.companies = [];
                 this.companies = response.data;
