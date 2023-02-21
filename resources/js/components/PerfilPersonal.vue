@@ -6,8 +6,11 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img :src="user.profile_image ? user.profile_image : '/img/default_profile.png'"
-                                    alt="imagen_del_usuario" class="mb-3 rounded-full w-48 h-48" id="block" />
+                                <img v-if="user.profile_image"
+                                    :src="`/img/profile_images/${authenticatedUser.profile_image}`" alt="imagen_del_usuario"
+                                    class="mb-3 rounded-full w-48 h-48" id="block">
+                                <img v-else src="/img/default_profile.png" alt="imagen_del_usuario"
+                                    class="mb-3 rounded-full w-48 h-48" id="block">
                                 <h4 id="block1" class="text-2xl font-bold">
                                     {{ user.name }} {{ user.last_name }}
                                 </h4>
@@ -60,14 +63,14 @@
                         </tbody>
                     </table>
                     <a href="/Perfil_Personal/Editar_Perfil"> <button
-                            class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2">
+                            class="bg-orange-500 hover:bg-white text-black font-medium py-2 px-4 rounded-lg border-2 border-black transition-transform duration-500 ease-in-out mx-2 mt-3">
                             Editar perfil
                         </button>
                     </a>
                 </div>
             </div>
         </div>
-</div>
+    </div>
 </template>
 
 <script>
@@ -101,10 +104,7 @@ export default {
     margin-bottom: 20px;
 }
 
-button,
-a {
-    margin-top: 20px;
-}
+
 
 .container {
     display: flex;
@@ -158,5 +158,4 @@ tr:nth-child(odd) {
 tr:nth-child(even) {
     /*Ficar color a les linies pars*/
     background-color: white;
-}
-</style>
+}</style>

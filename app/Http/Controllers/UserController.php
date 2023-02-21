@@ -17,8 +17,8 @@ class UserController extends Controller
     }
     public function userListing()
     {
-        $varusers = User::all(['name','last_name','email','phone']);
-        
+        $varusers = User::all(['name', 'last_name', 'email', 'phone']);
+
         return $varusers;
     }
     public function show_user()
@@ -54,5 +54,29 @@ class UserController extends Controller
         $updatedUser->save();
 
         return redirect()->route('Personal-Profile')->with('success', 'Información actualizada con éxito');
+    }
+
+    public function updateProfileImage(Request $request)
+    {
+        $user = $request->user();
+
+        // Validar la imagen
+        $request->validate([
+            'profile_image' => 'image|max:2048',
+        ]);
+
+        // Procesar la imagen
+        $image = $request->file('profile_image');
+        $imageName = $image->getClientOriginalName();
+
+        // Mover la imagen a la carpeta "public/img/profile_images"
+        $image->move(public_path('img/profile_images'), $imageName);
+
+        // Guardar el nombre de la imagen en la base de datos
+        $user->update([
+            'profile_image' => $imageName,
+        ]);
+
+        return redirect()->route('Personal-Profile');
     }
 }
